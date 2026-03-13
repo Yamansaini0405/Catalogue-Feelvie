@@ -4,7 +4,6 @@ import AuthCard from '../components/AuthCard'
 import { getTokenFromResponse, registerOwner } from '../services/authApi'
 
 const roleOptions = [
-  { value: 'admin', label: 'Admin' },
   { value: 'boutique_owner', label: 'Boutique Owner' },
   { value: 'customer', label: 'Customer' },
   { value: 'manufacturer', label: 'Manufacturer' },
