@@ -13,6 +13,7 @@ import {
   getCatalogPublicProducts,
   getCommonCarousels,
 } from '../services/authApi'
+import { useNavigate } from 'react-router-dom'
 
 function formatPrice(value) {
   const amount = Number(value)
@@ -21,6 +22,7 @@ function formatPrice(value) {
 }
 
 function ProductsPage() {
+  const navigate = useNavigate()
   const [carouselBanners, setCarouselBanners] = useState([])
   const [activeBannerIndex, setActiveBannerIndex] = useState(0)
   const [categories, setCategories] = useState([])
@@ -380,13 +382,18 @@ function ProductsPage() {
                 const colorSwatches = [...new Set((product?.variants ?? []).map((variant) => variant?.color?.hex_code).filter(Boolean))]
 
                 return (
-                  <article key={product.id} className='group'>
+                  <article
+                    key={product.id}
+                    className='group cursor-pointer'
+                    onClick={() => navigate(`/product/${product.id}`)}
+                  >
                     <div className='relative aspect-3/4 overflow-hidden rounded-2xl bg-zinc-100'>
                       {image ? (
                         <img src={image} alt={product?.name ?? 'Product'} className='h-full w-full object-cover transition duration-300 group-hover:scale-105' />
                       ) : null}
                       <button
                         type='button'
+                        onClick={(event) => event.stopPropagation()}
                         className='absolute right-3 top-3 rounded-full bg-white/90 p-1.5 text-zinc-600 shadow-sm'
                         aria-label='wishlist'
                       >

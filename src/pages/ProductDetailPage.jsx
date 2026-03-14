@@ -135,6 +135,15 @@ function ProductDetailPage() {
           Back to Products
         </Link>
       )}
+      <button
+        type='button'
+        onClick={() => navigate(-1)}
+        className='inline-flex items-center gap-1 rounded-lg border border-slate-300 px-2.5 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50'
+      >
+        <ArrowLeft size={16} />
+        Back
+      </button>
+
 
       {product && (
         <>
@@ -150,9 +159,8 @@ function ProductDetailPage() {
                           key={image.id ?? index}
                           type='button'
                           onClick={() => setSelectedImageIndex(index)}
-                          className={`overflow-hidden rounded-md border ${
-                            selectedImageIndex === index ? 'border-fuchsia-500' : 'border-slate-200'
-                          }`}
+                          className={`overflow-hidden rounded-md border ${selectedImageIndex === index ? 'border-fuchsia-500' : 'border-slate-200'
+                            }`}
                         >
                           {thumbUrl ? (
                             <img src={thumbUrl} alt={image?.alt_text || 'Thumbnail'} className='h-14 w-14 object-cover md:h-16 md:w-16' />
