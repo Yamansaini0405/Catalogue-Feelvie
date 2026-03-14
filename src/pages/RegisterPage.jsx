@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import AuthCard from '../components/AuthCard'
-import { getTokenFromResponse, registerOwner } from '../services/authApi'
+import { registerOwner } from '../services/authApi'
 
 const roleOptions = [
   { value: 'boutique_owner', label: 'Boutique Owner' },
@@ -24,16 +24,10 @@ function RegisterPage() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
-  const [token, setToken] = useState(localStorage.getItem('authToken') ?? '')
 
   const clearMessages = () => {
     setError('')
     setSuccess('')
-  }
-
-  const saveToken = (value) => {
-    localStorage.setItem('authToken', value)
-    setToken(value)
   }
 
   const handleChange = (event) => {
@@ -47,17 +41,25 @@ function RegisterPage() {
     setLoading(true)
 
     try {
-      const data = await registerOwner(form)
-      const receivedToken = getTokenFromResponse(data)
-
-      if (!receivedToken) {
-        throw new Error('Token not found in register response')
+      const credentials = {
+        email: form.email,
+        password: form.password,
       }
 
-      saveToken(receivedToken)
-      setSuccess('Registration successful. Token saved to local storage.')
+      const data = await registerOwner(form)
+      if (!data) {
+        throw new Error('Registration failed')
+      }
+
+      setSuccess('Registration successful. Please login with your credentials.')
       setForm(initialRegisterForm)
-      navigate('/view-products')
+      navigate('/login', {
+        replace: true,
+        state: {
+          fromRegister: true,
+          credentials,
+        },
+      })
     } catch (requestError) {
       setError(requestError?.message ?? 'Something went wrong during registration')
     } finally {
@@ -66,7 +68,7 @@ function RegisterPage() {
   }
 
   return (
-    <AuthCard title='Boutique Owner Register' error={error} success={success} token={token}>
+    <AuthCard title='Boutique Owner Register' error={error} success={success} token=''>
       <form className='space-y-3' onSubmit={handleSubmit}>
         <input
           type='email'

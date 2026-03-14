@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import AuthCard from '../components/AuthCard'
 import { getTokenFromResponse, loginOwner } from '../services/authApi'
 
@@ -10,11 +10,23 @@ const initialLoginForm = {
 
 function LoginPage() {
   const navigate = useNavigate()
-  const [form, setForm] = useState(initialLoginForm)
+  const location = useLocation()
+  const registerCredentials = location.state?.credentials
+
+  const [form, setForm] = useState(() => ({
+    email: registerCredentials?.email ?? '',
+    password: registerCredentials?.password ?? '',
+  }))
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
   const [token, setToken] = useState(localStorage.getItem('authToken') ?? '')
+
+  useEffect(() => {
+    if (location.state?.fromRegister) {
+      setSuccess('Registration successful. Please login to continue.')
+    }
+  }, [location.state])
 
   const clearMessages = () => {
     setError('')
