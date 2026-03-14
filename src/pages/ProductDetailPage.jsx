@@ -1,6 +1,6 @@
 import { ArrowLeft, CircleAlert, Star } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { getCatalogProductById, getCatalogProducts } from '../services/authApi'
 
 const formatAmount = (value) => {
@@ -13,17 +13,20 @@ const formatAmount = (value) => {
 function ProductDetailPage() {
   const { id } = useParams()
   const navigate = useNavigate()
+  const location = useLocation()
   const [product, setProduct] = useState(null)
   const [similarProducts, setSimilarProducts] = useState([])
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
+  const isStandaloneProductPage = location.pathname.startsWith('/product/')
+
   useEffect(() => {
     const fetchProduct = async () => {
       const token = localStorage.getItem('authToken') ?? ''
 
-      if (!token) {
+      if (!token && !isStandaloneProductPage) {
         navigate('/login', { replace: true })
         return
       }
@@ -35,18 +38,18 @@ function ProductDetailPage() {
       }
 
       try {
-        const [detailsData, productsData] = await Promise.all([
-          getCatalogProductById(token, id),
-          getCatalogProducts(token),
-        ])
-
+        const detailsData = await getCatalogProductById(token, id)
         setProduct(detailsData)
 
-        const filtered = productsData
-          .filter((item) => String(item.id) !== String(id) && item.category === detailsData.category)
-          .slice(0, 5)
-
-        setSimilarProducts(filtered)
+        if (token) {
+          const productsData = await getCatalogProducts(token)
+          const filtered = productsData
+            .filter((item) => String(item.id) !== String(id) && item.category === detailsData.category)
+            .slice(0, 5)
+          setSimilarProducts(filtered)
+        } else {
+          setSimilarProducts([])
+        }
       } catch (requestError) {
         setError(requestError?.message ?? 'Failed to load product details')
       } finally {
@@ -55,7 +58,7 @@ function ProductDetailPage() {
     }
 
     fetchProduct()
-  }, [id, navigate])
+  }, [id, navigate, isStandaloneProductPage])
 
   const images = useMemo(() => product?.images ?? [], [product])
   const variants = useMemo(() => product?.variants ?? [], [product])
@@ -107,13 +110,15 @@ function ProductDetailPage() {
   if (error) {
     return (
       <section className='rounded-2xl bg-white p-6 shadow-lg'>
-        <Link
-          to='/dashboard'
-          className='mb-4 inline-flex items-center gap-2 rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50'
-        >
-          <ArrowLeft size={16} />
-          Back to Dashboard
-        </Link>
+        {!isStandaloneProductPage && (
+          <Link
+            to='/view-products'
+            className='mb-4 inline-flex items-center gap-2 rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50'
+          >
+            <ArrowLeft size={16} />
+            Back to Products
+          </Link>
+        )}
         <p className='rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700'>{error}</p>
       </section>
     )
@@ -121,7 +126,15 @@ function ProductDetailPage() {
 
   return (
     <section className='space-y-4'>
-      
+      {!isStandaloneProductPage && (
+        <Link
+          to='/view-products'
+          className='inline-flex items-center gap-2 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50'
+        >
+          <ArrowLeft size={16} />
+          Back to Products
+        </Link>
+      )}
 
       {product && (
         <>
@@ -137,7 +150,7 @@ function ProductDetailPage() {
                           key={image.id ?? index}
                           type='button'
                           onClick={() => setSelectedImageIndex(index)}
-                          className={`overflow-hidden rounded-md border mx-1 ${
+                          className={`overflow-hidden rounded-md border ${
                             selectedImageIndex === index ? 'border-fuchsia-500' : 'border-slate-200'
                           }`}
                         >
@@ -170,7 +183,7 @@ function ProductDetailPage() {
               </div>
             </article>
 
-            <article className=''>
+            <article>
               <div className='rounded-2xl bg-white p-6 shadow-lg'>
                 <p className='text-sm font-semibold uppercase tracking-wide text-slate-500'>{product?.product_type || 'product'}</p>
                 <h2 className='mt-2 text-2xl font-bold text-slate-900'>{product?.name || 'Untitled Product'}</h2>
@@ -212,10 +225,7 @@ function ProductDetailPage() {
               </div>
 
               <div className='mt-4 rounded-2xl bg-white p-6 shadow-lg'>
-                <div className='flex items-start justify-between gap-3'>
-                  <h3 className='text-xl font-semibold text-slate-900'>Product Highlights</h3>
-                
-                </div>
+                <h3 className='text-xl font-semibold text-slate-900'>Product Highlights</h3>
 
                 <div className='mt-4 space-y-4'>
                   <div>
@@ -296,16 +306,21 @@ function ProductDetailPage() {
                   <p className='text-base font-semibold text-slate-900'>{product?.seller_email || 'Seller'}</p>
                   <p className='text-sm text-slate-500'>Seller ID: {product?.seller_id ?? '-'}</p>
                 </div>
-                <button type='button' className='rounded-lg border border-fuchsia-500 px-4 py-2 text-sm font-semibold text-fuchsia-700'>
+                <button
+                  type='button'
+                  className='rounded-lg border border-fuchsia-500 px-4 py-2 text-sm font-semibold text-fuchsia-700'
+                >
                   View Shop
                 </button>
-                </div>
               </div>
+            </div>
           </div>
 
           <article className='rounded-2xl bg-white p-6 shadow-lg'>
             <h3 className='text-2xl font-semibold text-slate-900'>Similar Products</h3>
-            {similarProducts.length === 0 ? (
+            {!localStorage.getItem('authToken') ? (
+              <p className='mt-3 text-sm text-slate-500'>Login to view similar products.</p>
+            ) : similarProducts.length === 0 ? (
               <p className='mt-3 text-sm text-slate-500'>No similar products found.</p>
             ) : (
               <div className='mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5'>
@@ -315,7 +330,7 @@ function ProductDetailPage() {
                     <button
                       key={item.id}
                       type='button'
-                      onClick={() => navigate(`/products/${item.id}`)}
+                      onClick={() => navigate(`/product/${item.id}`)}
                       className='rounded-xl border border-slate-200 p-2 text-left hover:border-fuchsia-400'
                     >
                       <div className='overflow-hidden rounded-lg bg-slate-100'>

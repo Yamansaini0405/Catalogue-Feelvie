@@ -7,6 +7,7 @@ function DashboardPage() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+  const [shareMessage, setShareMessage] = useState('')
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -30,6 +31,19 @@ function DashboardPage() {
     fetchProducts()
   }, [navigate])
 
+  const copyProductLink = async (productId) => {
+    const shareUrl = `${window.location.origin}/product/${productId}`
+
+    try {
+      await navigator.clipboard.writeText(shareUrl)
+      setShareMessage('Share link copied')
+      window.setTimeout(() => setShareMessage(''), 1800)
+    } catch {
+      setShareMessage('Unable to copy link')
+      window.setTimeout(() => setShareMessage(''), 1800)
+    }
+  }
+
   return (
     <section className='rounded-2xl bg-white p-6 shadow-lg'>
       <div className='mb-6'>
@@ -39,6 +53,7 @@ function DashboardPage() {
 
       {loading && <p className='text-sm text-slate-600'>Loading products...</p>}
       {error && <p className='rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700'>{error}</p>}
+      {shareMessage && <p className='mb-3 rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-700'>{shareMessage}</p>}
 
       {!loading && !error && products.length === 0 && (
         <p className='rounded-lg bg-slate-100 px-3 py-2 text-sm text-slate-700'>No products found for this user.</p>
@@ -63,13 +78,22 @@ function DashboardPage() {
                   <p className='text-sm font-semibold text-slate-900'>
                     {product?.currency ?? 'INR'} {product?.selling_price ?? '-'}
                   </p>
-                  <button
-                    type='button'
-                    onClick={() => navigate(`/products/${product.id}`)}
-                    className='mt-2 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50'
-                  >
-                    View Details
-                  </button>
+                  <div className='mt-2 grid grid-cols-2 gap-2'>
+                    <button
+                      type='button'
+                      onClick={() => navigate(`/product/${product.id}`)}
+                      className='rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50'
+                    >
+                      View Details
+                    </button>
+                    <button
+                      type='button'
+                      onClick={() => copyProductLink(product.id)}
+                      className='rounded-lg border border-fuchsia-500 px-3 py-2 text-sm font-medium text-fuchsia-700 hover:bg-fuchsia-50'
+                    >
+                      Share
+                    </button>
+                  </div>
                 </div>
               </article>
             )

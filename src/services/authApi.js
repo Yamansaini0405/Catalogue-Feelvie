@@ -45,11 +45,14 @@ export const getCatalogProducts = async (token) => {
 }
 
 export const getCatalogProductById = async (token, productId) => {
+  const headers = {}
+  if (token) {
+    headers.Authorization = `Bearer ${token}`
+  }
+
   const response = await fetch(`${API_BASE_URL}/api/catalog/products/${productId}/`, {
     method: 'GET',
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
+    headers,
   })
 
   const data = await response.json()

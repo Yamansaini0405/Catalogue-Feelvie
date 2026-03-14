@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
 import ProductDetailPage from './pages/ProductDetailPage'
 import RegisterPage from './pages/RegisterPage'
+import SharedProductPage from './pages/SharedProductPage'
 
 function ProtectedRoute({ children }) {
   const token = localStorage.getItem('authToken')
@@ -24,6 +25,7 @@ function App() {
       <Route path='/' element={<Navigate to='/register' replace />} />
       <Route path='/register' element={<RegisterPage />} />
       <Route path='/login' element={<LoginPage />} />
+      <Route path='/product/:id' element={<SharedProductPage />} />
       <Route
         element={
           <ProtectedRoute>
