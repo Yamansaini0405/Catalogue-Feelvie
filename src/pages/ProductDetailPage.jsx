@@ -1,7 +1,7 @@
 import { ArrowLeft, CircleAlert, Star } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
-import { getCatalogProductById, getCatalogProducts } from '../services/authApi'
+import { getCatalogProductById, getCatalogPublicProducts } from '../services/authApi'
 
 const formatAmount = (value) => {
   if (value === null || value === undefined || value === '') return '-'
@@ -24,13 +24,6 @@ function ProductDetailPage() {
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const token = localStorage.getItem('authToken') ?? ''
-
-      if (!token && !isStandaloneProductPage) {
-        navigate('/login', { replace: true })
-        return
-      }
-
       if (!id) {
         setError('Invalid product ID')
         setLoading(false)
@@ -38,18 +31,15 @@ function ProductDetailPage() {
       }
 
       try {
-        const detailsData = await getCatalogProductById(token, id)
+        const detailsData = await getCatalogProductById(id)
         setProduct(detailsData)
 
-        if (token) {
-          const productsData = await getCatalogProducts(token)
-          const filtered = productsData
-            .filter((item) => String(item.id) !== String(id) && item.category === detailsData.category)
-            .slice(0, 5)
-          setSimilarProducts(filtered)
-        } else {
-          setSimilarProducts([])
-        }
+        const productsData = await getCatalogPublicProducts()
+        const filtered = productsData
+          .filter((item) => item?.is_active)
+          .filter((item) => String(item.id) !== String(id) && item.category === detailsData.category)
+          .slice(0, 5)
+        setSimilarProducts(filtered)
       } catch (requestError) {
         setError(requestError?.message ?? 'Failed to load product details')
       } finally {
@@ -58,7 +48,7 @@ function ProductDetailPage() {
     }
 
     fetchProduct()
-  }, [id, navigate, isStandaloneProductPage])
+  }, [id])
 
   const images = useMemo(() => product?.images ?? [], [product])
   const variants = useMemo(() => product?.variants ?? [], [product])
@@ -326,9 +316,7 @@ function ProductDetailPage() {
 
           <article className='rounded-2xl bg-white p-6 shadow-lg'>
             <h3 className='text-2xl font-semibold text-slate-900'>Similar Products</h3>
-            {!localStorage.getItem('authToken') ? (
-              <p className='mt-3 text-sm text-slate-500'>Login to view similar products.</p>
-            ) : similarProducts.length === 0 ? (
+            {similarProducts.length === 0 ? (
               <p className='mt-3 text-sm text-slate-500'>No similar products found.</p>
             ) : (
               <div className='mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5'>

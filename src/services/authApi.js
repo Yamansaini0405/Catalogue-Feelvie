@@ -58,15 +58,9 @@ export const getCatalogPublicProducts = async () => {
   return Array.isArray(data) ? data : []
 }
 
-export const getCatalogProductById = async (token, productId) => {
-  const headers = {}
-  if (token) {
-    headers.Authorization = `Bearer ${token}`
-  }
-
+export const getCatalogProductById = async (productId) => {
   const response = await fetch(`${API_BASE_URL}/api/catalog/products/${productId}/`, {
     method: 'GET',
-    headers,
   })
 
   const data = await response.json()
