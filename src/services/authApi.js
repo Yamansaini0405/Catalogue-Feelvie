@@ -44,6 +44,20 @@ export const getCatalogProducts = async (token) => {
   return Array.isArray(data) ? data : []
 }
 
+export const getCatalogPublicProducts = async () => {
+  const response = await fetch(`${API_BASE_URL}/api/catalog/products/`, {
+    method: 'GET',
+  })
+
+  const data = await response.json()
+
+  if (!response.ok) {
+    throw new Error(data?.detail ?? data?.message ?? 'Unable to fetch products')
+  }
+
+  return Array.isArray(data) ? data : []
+}
+
 export const getCatalogProductById = async (token, productId) => {
   const headers = {}
   if (token) {
@@ -65,11 +79,14 @@ export const getCatalogProductById = async (token, productId) => {
 }
 
 export const getCatalogCategories = async (token) => {
+  const headers = {}
+  if (token) {
+    headers.Authorization = `Bearer ${token}`
+  }
+
   const response = await fetch(`${API_BASE_URL}/api/catalog/categories/`, {
     method: 'GET',
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
+    headers,
   })
 
   const data = await response.json()
@@ -195,4 +212,18 @@ export const createCatalogProduct = async (token, formData) => {
   }
 
   return data
+}
+
+export const getCommonCarousels = async () => {
+  const response = await fetch(`${API_BASE_URL}/api/common/carousels/`, {
+    method: 'GET',
+  })
+
+  const data = await response.json()
+
+  if (!response.ok) {
+    throw new Error(data?.detail ?? data?.message ?? 'Unable to fetch carousels')
+  }
+
+  return Array.isArray(data) ? data : []
 }
