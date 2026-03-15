@@ -378,7 +378,7 @@ function AddProductPage() {
         </label>
 
         <div className='space-y-2'>
-          <p className='text-sm text-slate-700'>Colors *</p>
+          <p className='text-sm text-slate-700'>Colors </p>
           <div className='max-h-40 space-y-2 overflow-auto rounded-lg border border-slate-300 p-2'>
             {colors.map((color) => (
               <label key={color.id} className='flex items-center gap-2 text-sm text-slate-700'>
@@ -395,7 +395,7 @@ function AddProductPage() {
         </div>
 
         <div className='space-y-2'>
-          <p className='text-sm text-slate-700'>Sizes *</p>
+          <p className='text-sm text-slate-700'>Sizes </p>
           <div className='max-h-40 space-y-2 overflow-auto rounded-lg border border-slate-300 p-2'>
             {sizes.map((size) => (
               <label key={size.id} className='flex items-center gap-2 text-sm text-slate-700'>

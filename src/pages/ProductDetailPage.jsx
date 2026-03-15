@@ -1,7 +1,9 @@
-import { ArrowLeft, CircleAlert, Star } from 'lucide-react'
+import { ArrowLeft, CircleAlert, Minus, Plus, Star } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { getCatalogProductById, getCatalogPublicProducts } from '../services/authApi'
+
+const FORMSPREE_QUOTE_ENDPOINT = import.meta.env.VITE_FORMSPREE_QUOTE_ENDPOINT ?? ''
 
 const formatAmount = (value) => {
   if (value === null || value === undefined || value === '') return '-'
@@ -17,6 +19,19 @@ function ProductDetailPage() {
   const [product, setProduct] = useState(null)
   const [similarProducts, setSimilarProducts] = useState([])
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
+  const [imageZoom, setImageZoom] = useState(1)
+  const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false)
+  const [isQuoteSubmitting, setIsQuoteSubmitting] = useState(false)
+  const [quoteError, setQuoteError] = useState('')
+  const [quoteSuccess, setQuoteSuccess] = useState('')
+  const [quoteForm, setQuoteForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    customizationDescription: '',
+    priceRange: '',
+    clothSize: '',
+  })
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
@@ -57,6 +72,108 @@ function ProductDetailPage() {
     if (images.length === 0) return null
     return images[selectedImageIndex] ?? images[0]
   }, [images, selectedImageIndex])
+
+  useEffect(() => {
+    setImageZoom(1)
+  }, [selectedImageIndex, id])
+
+  const zoomIn = () => {
+    setImageZoom((previous) => Math.min(3, Number((previous + 0.25).toFixed(2))))
+  }
+
+  const zoomOut = () => {
+    setImageZoom((previous) => Math.max(1, Number((previous - 0.25).toFixed(2))))
+  }
+
+  const resetZoom = () => {
+    setImageZoom(1)
+  }
+
+  const onQuoteFieldChange = (event) => {
+    const { name, value } = event.target
+    setQuoteForm((previous) => ({
+      ...previous,
+      [name]: value,
+    }))
+  }
+
+  const openQuoteModal = () => {
+    setQuoteError('')
+    setQuoteSuccess('')
+    setIsQuoteModalOpen(true)
+  }
+
+  const closeQuoteModal = () => {
+    if (isQuoteSubmitting) return
+    setIsQuoteModalOpen(false)
+  }
+
+  const submitQuoteRequest = async (event) => {
+    event.preventDefault()
+    setQuoteError('')
+    setQuoteSuccess('')
+
+    if (!FORMSPREE_QUOTE_ENDPOINT) {
+      setQuoteError('Formspree endpoint is missing. Set VITE_FORMSPREE_QUOTE_ENDPOINT in your environment.')
+      return
+    }
+
+    if (
+      !quoteForm.name.trim() ||
+      !quoteForm.email.trim() ||
+      !quoteForm.phone.trim() ||
+      !quoteForm.customizationDescription.trim() ||
+      !quoteForm.priceRange.trim() ||
+      !quoteForm.clothSize.trim()
+    ) {
+      setQuoteError('Please fill all quote fields.')
+      return
+    }
+
+    setIsQuoteSubmitting(true)
+
+    try {
+      const response = await fetch(FORMSPREE_QUOTE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: quoteForm.name.trim(),
+          email: quoteForm.email.trim(),
+          phone: quoteForm.phone.trim(),
+          customization_description: quoteForm.customizationDescription.trim(),
+          price_range: quoteForm.priceRange.trim(),
+          cloth_size: quoteForm.clothSize.trim(),
+          product_id: product?.id ?? '-',
+          product_name: product?.name ?? '-',
+          seller_email: product?.seller_email ?? '-',
+        }),
+      })
+
+      const result = await response.json().catch(() => ({}))
+
+      if (!response.ok) {
+        throw new Error(result?.errors?.[0]?.message || result?.error || 'Unable to submit quote request')
+      }
+
+      setQuoteSuccess('Quote request submitted successfully. We will contact you soon.')
+      setQuoteForm({
+        name: '',
+        email: '',
+        phone: '',
+        customizationDescription: '',
+        priceRange: '',
+        clothSize: '',
+      })
+      setIsQuoteModalOpen(false)
+    } catch (requestError) {
+      setQuoteError(requestError?.message || 'Unable to submit quote request')
+    } finally {
+      setIsQuoteSubmitting(false)
+    }
+  }
 
   const sizeOptions = useMemo(() => {
     const unique = new Map()
@@ -165,12 +282,44 @@ function ProductDetailPage() {
                   )}
                 </div>
 
-                <div className='overflow-hidden rounded-xl border border-slate-200 bg-slate-50'>
+                <div className='relative overflow-hidden rounded-xl border border-slate-200 bg-slate-50'>
+                  <div className='absolute right-2 top-2 z-10 flex items-center gap-1 rounded-lg bg-white/95 p-1 shadow-sm'>
+                    <button
+                      type='button'
+                      onClick={zoomOut}
+                      disabled={imageZoom <= 1}
+                      className='rounded-md border border-slate-200 p-1 text-slate-700 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40'
+                      aria-label='Zoom out'
+                    >
+                      <Minus size={14} />
+                    </button>
+                    <span className='min-w-12 text-center text-xs font-medium text-slate-700'>
+                      {Math.round(imageZoom * 100)}%
+                    </span>
+                    <button
+                      type='button'
+                      onClick={zoomIn}
+                      disabled={imageZoom >= 3}
+                      className='rounded-md border border-slate-200 p-1 text-slate-700 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40'
+                      aria-label='Zoom in'
+                    >
+                      <Plus size={14} />
+                    </button>
+                    <button
+                      type='button'
+                      onClick={resetZoom}
+                      className='rounded-md border border-slate-200 px-2 py-1 text-xs font-medium text-slate-700 hover:bg-slate-50'
+                    >
+                      Reset
+                    </button>
+                  </div>
+
                   {selectedImage?.image_url || selectedImage?.image ? (
                     <img
                       src={selectedImage?.image_url || selectedImage?.image}
                       alt={selectedImage?.alt_text || product.name || 'Product image'}
-                      className='h-85 w-full object-contain md:h-130'
+                      className='h-85 w-full object-contain transition-transform duration-200 md:h-130'
+                      style={{ transform: `scale(${imageZoom})`, transformOrigin: 'center center' }}
                     />
                   ) : (
                     <div className='flex h-85 items-center justify-center text-sm text-slate-500 md:h-130'>
@@ -201,7 +350,15 @@ function ProductDetailPage() {
                   <Star size={12} fill='currentColor' />
                   4.2
                 </div>
-                <p className='mt-2 text-sm text-slate-500'>Status: {product?.status || '-'} • Condition: {product?.condition || '-'}</p>
+                <p className='mt-2 text-sm text-slate-500'> • Condition: {product?.condition || '-'}</p>
+
+                <button
+                  type='button'
+                  onClick={openQuoteModal}
+                  className='mt-4 rounded-lg border border-fuchsia-500 px-4 py-2 text-sm font-semibold text-fuchsia-700 hover:bg-fuchsia-50'
+                >
+                  Ask Quote
+                </button>
               </div>
 
               <div className='mt-4 rounded-2xl bg-white p-6 shadow-lg'>
@@ -297,21 +454,7 @@ function ProductDetailPage() {
               </div>
             )}
 
-            <div className='rounded-2xl bg-white p-6 shadow-lg xl:col-span-2'>
-              <h3 className='text-xl font-semibold text-slate-900'>Sold By</h3>
-              <div className='mt-3 flex items-center justify-between gap-3'>
-                <div>
-                  <p className='text-base font-semibold text-slate-900'>{product?.seller_email || 'Seller'}</p>
-                  <p className='text-sm text-slate-500'>Seller ID: {product?.seller_id ?? '-'}</p>
-                </div>
-                <button
-                  type='button'
-                  className='rounded-lg border border-fuchsia-500 px-4 py-2 text-sm font-semibold text-fuchsia-700'
-                >
-                  View Shop
-                </button>
-              </div>
-            </div>
+            
           </div>
 
           <article className='rounded-2xl bg-white p-6 shadow-lg'>
@@ -345,6 +488,120 @@ function ProductDetailPage() {
             )}
           </article>
         </>
+      )}
+
+      {isQuoteModalOpen && (
+        <div className='fixed inset-0 z-50 flex items-center justify-center bg-black/45 p-4 '>
+          <div className='max-h-[90vh] w-full max-w-xl overflow-auto rounded-2xl bg-white p-6 shadow-2xl no-scrollbar'>
+            <div className='mb-4 flex items-start justify-between gap-4'>
+              <div>
+                <h3 className='text-xl font-bold text-slate-900'>Customization Quote</h3>
+                <p className='mt-1 text-sm text-slate-600'>Share your requirements and we will send your quote by email.</p>
+              </div>
+              <button
+                type='button'
+                onClick={closeQuoteModal}
+                disabled={isQuoteSubmitting}
+                className='rounded-lg border border-slate-300 px-3 py-1.5 text-sm text-slate-700 hover:bg-slate-50 disabled:opacity-50'
+              >
+                Close
+              </button>
+            </div>
+
+            <form onSubmit={submitQuoteRequest} className='grid grid-cols-1 gap-4'>
+              <label className='space-y-1'>
+                <span className='text-sm text-slate-700'>Name</span>
+                <input
+                  name='name'
+                  value={quoteForm.name}
+                  onChange={onQuoteFieldChange}
+                  className='w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500'
+                  required
+                />
+              </label>
+
+              <label className='space-y-1'>
+                <span className='text-sm text-slate-700'>Email</span>
+                <input
+                  type='email'
+                  name='email'
+                  value={quoteForm.email}
+                  onChange={onQuoteFieldChange}
+                  className='w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500'
+                  required
+                />
+              </label>
+
+              <label className='space-y-1'>
+                <span className='text-sm text-slate-700'>Phone</span>
+                <input
+                  name='phone'
+                  value={quoteForm.phone}
+                  onChange={onQuoteFieldChange}
+                  className='w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500'
+                  required
+                />
+              </label>
+
+              <label className='space-y-1'>
+                <span className='text-sm text-slate-700'>Customization Description</span>
+                <textarea
+                  name='customizationDescription'
+                  rows={4}
+                  value={quoteForm.customizationDescription}
+                  onChange={onQuoteFieldChange}
+                  className='w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500'
+                  required
+                />
+              </label>
+
+              <label className='space-y-1'>
+                <span className='text-sm text-slate-700'>Price Range</span>
+                <input
+                  name='priceRange'
+                  placeholder='e.g. ₹2,000 - ₹4,000'
+                  value={quoteForm.priceRange}
+                  onChange={onQuoteFieldChange}
+                  className='w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500'
+                  required
+                />
+              </label>
+
+              <label className='space-y-1'>
+                <span className='text-sm text-slate-700'>Cloth Size</span>
+                <input
+                  name='clothSize'
+                  value={quoteForm.clothSize}
+                  onChange={onQuoteFieldChange}
+                  placeholder='e.g. M, L, XL, 40'
+                  className='w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500'
+                  required
+                />
+              </label>
+
+              {quoteError && <p className='rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700'>{quoteError}</p>}
+              {quoteSuccess && <p className='rounded-lg bg-emerald-50 px-3 py-2 text-sm text-emerald-700'>{quoteSuccess}</p>}
+
+              <div className='mt-2 flex justify-end gap-2'>
+                <button
+                  type='button'
+                  onClick={closeQuoteModal}
+                  disabled={isQuoteSubmitting}
+                  className='rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50 disabled:opacity-50'
+                >
+                  Cancel
+                </button>
+                <button
+                  type='submit'
+                  disabled={isQuoteSubmitting}
+                  className='rounded-lg bg-fuchsia-700 px-4 py-2 text-sm font-semibold text-white hover:bg-fuchsia-800 disabled:opacity-50'
+                >
+                  {isQuoteSubmitting ? 'Submitting...' : 'Submit Quote'}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
       )}
     </section>
   )

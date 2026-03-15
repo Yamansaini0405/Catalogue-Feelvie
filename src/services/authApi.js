@@ -208,6 +208,38 @@ export const createCatalogProduct = async (token, formData) => {
   return data
 }
 
+export const updateCatalogProductById = async (token, productId, payload) => {
+  const isFormDataPayload = payload instanceof FormData
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  }
+
+  if (!isFormDataPayload) {
+    headers['Content-Type'] = 'application/json'
+  }
+
+  const response = await fetch(`${API_BASE_URL}/api/catalog/products/${productId}/`, {
+    method: 'PATCH',
+    headers,
+    body: isFormDataPayload ? payload : JSON.stringify(payload),
+  })
+
+  const text = await response.text()
+  let data = {}
+
+  try {
+    data = text ? JSON.parse(text) : {}
+  } catch {
+    data = { detail: text }
+  }
+
+  if (!response.ok) {
+    throw new Error(data?.detail ?? data?.message ?? text ?? 'Unable to update product')
+  }
+
+  return data
+}
+
 export const getCommonCarousels = async () => {
   const response = await fetch(`${API_BASE_URL}/api/common/carousels/`, {
     method: 'GET',
