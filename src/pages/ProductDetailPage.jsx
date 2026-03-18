@@ -352,13 +352,7 @@ function ProductDetailPage() {
                 </div>
                 <p className='mt-2 text-sm text-slate-500'> • Condition: {product?.condition || '-'}</p>
 
-                <button
-                  type='button'
-                  onClick={openQuoteModal}
-                  className='mt-4 rounded-lg border border-fuchsia-500 px-4 py-2 text-sm font-semibold text-fuchsia-700 hover:bg-fuchsia-50'
-                >
-                  Ask Quote
-                </button>
+                
               </div>
 
               <div className='mt-4 rounded-2xl bg-white p-6 shadow-lg'>

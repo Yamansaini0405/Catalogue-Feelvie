@@ -9,6 +9,7 @@ import ProductDetailPage from './pages/ProductDetailPage'
 import ProductsPage from './pages/ProductsPage'
 import RegisterPage from './pages/RegisterPage'
 import SharedProductPage from './pages/SharedProductPage'
+import EthnicWearQuotePage from './pages/EthnicWearQuotePage'
 
 function ProtectedRoute({ children }) {
   const token = localStorage.getItem('authToken')
@@ -27,7 +28,7 @@ function App() {
       <Route path='/register' element={<RegisterPage />} />
       <Route path='/login' element={<LoginPage />} />
       <Route path='/products' element={<ProductsPage />} />
-      <Route path='/product/:id' element={<SharedProductPage />} />
+      <Route path='/product/:ask-quoteid' element={<SharedProductPage />} />
       <Route
         element={
           <ProtectedRoute>
@@ -40,7 +41,9 @@ function App() {
         <Route path='/products/:id' element={<ProductDetailPage />} />
         <Route path='/add-product' element={<AddProductPage />} />
         <Route path='/add-variant' element={<AddVariantPage />} />
+        
       </Route>
+      <Route path='/ask-quote' element={<EthnicWearQuotePage />} />
       <Route path='*' element={<Navigate to='/register' replace />} />
     </Routes>
   )
