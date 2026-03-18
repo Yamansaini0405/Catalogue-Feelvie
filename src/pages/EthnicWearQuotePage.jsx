@@ -1,9 +1,7 @@
-import { CheckCircle2, Sparkles } from 'lucide-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import feelVieLogo from '../assets/feelVie.png'
-import coverImage from '../assets/cover.jpg'
 
-const FORMSPREE_ETHNIC_ENDPOINT = import.meta.env.VITE_FORMSPREE_QUOTE_ENDPOINT ?? ''
+const FORMINIT_FORM_ID = 'g2amwaxiojr'
 
 const dressTypes = ['Saree', 'Lehenga', 'Gown', 'Suit / Salwar', 'Kids Wear', 'Custom Design']
 const occasions = ['Wedding', 'Party', 'Casual', 'Festival', 'Other']
@@ -38,6 +36,21 @@ function EthnicWearQuotePage() {
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
 
+  useEffect(() => {
+    if (window.Forminit) {
+      return undefined
+    }
+
+    const script = document.createElement('script')
+    script.src = 'https://forminit.com/sdk/v1/forminit.js'
+    script.async = true
+    document.body.appendChild(script)
+
+    return () => {
+      document.body.removeChild(script)
+    }
+  }, [])
+
   const onFieldChange = (event) => {
     const { name, value } = event.target
     setForm((previous) => ({
@@ -56,8 +69,8 @@ function EthnicWearQuotePage() {
     setError('')
     setSuccess('')
 
-    if (!FORMSPREE_ETHNIC_ENDPOINT) {
-      setError('Form endpoint missing. Set VITE_FORMSPREE_QUOTE_ENDPOINT in your environment.')
+    if (!window.Forminit) {
+      setError('Form service is still loading. Please wait a moment and try again.')
       return
     }
 
@@ -70,35 +83,26 @@ function EthnicWearQuotePage() {
 
     try {
       const formData = new FormData()
-      formData.append('full_name', form.fullName.trim())
-      formData.append('email', form.email.trim())
-      formData.append('phone_or_whatsapp', form.phone.trim())
-      formData.append('city_location', form.city.trim())
-      formData.append('dress_type', form.dressType)
-      formData.append('occasion', form.occasion)
-      formData.append('preferred_fabric', form.fabric)
-      formData.append('preferred_color', form.preferredColor.trim())
-      formData.append('size', form.clothSize)
-      formData.append('budget_range', form.budgetRange)
-      formData.append('customization_requirements', form.customizationRequirements.trim())
-      formData.append('required_delivery_date', form.requiredDeliveryDate)
-      formData.append('additional_notes', form.additionalNotes.trim())
-      formData.append('reference_image', referenceImage)
-      formData.append('_subject', 'New Ethnic Wear Quote Request')
-      formData.append('_replyto', form.email.trim())
+      formData.append('fi-sender-fullName', form.fullName.trim())
+      formData.append('fi-sender-email', form.email.trim())
+      formData.append('fi-text-phoneOrWhatsapp', form.phone.trim())
+      formData.append('fi-text-cityLocation', form.city.trim())
+      formData.append('fi-select-dressType', form.dressType)
+      formData.append('fi-select-occasion', form.occasion)
+      formData.append('fi-select-preferredFabric', form.fabric)
+      formData.append('fi-text-preferredColor', form.preferredColor.trim())
+      formData.append('fi-select-size', form.clothSize)
+      formData.append('fi-select-budgetRange', form.budgetRange)
+      formData.append('fi-text-customizationRequirements', form.customizationRequirements.trim())
+      formData.append('fi-date-requiredDeliveryDate', form.requiredDeliveryDate)
+      formData.append('fi-text-additionalNotes', form.additionalNotes.trim())
+      formData.append('fi-file-referenceImage', referenceImage, referenceImage.name)
 
-      const response = await fetch(FORMSPREE_ETHNIC_ENDPOINT, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-        },
-        body: formData,
-      })
+      const forminit = new window.Forminit()
+      const { error: submitError } = await forminit.submit(FORMINIT_FORM_ID, formData)
 
-      const result = await response.json().catch(() => ({}))
-
-      if (!response.ok) {
-        throw new Error(result?.errors?.[0]?.message || result?.error || 'Unable to submit quote request')
+      if (submitError) {
+        throw new Error(submitError?.message || 'Unable to submit quote request')
       }
 
       setSuccess('Request submitted successfully. Our boutique team will contact you soon.')
@@ -117,7 +121,7 @@ function EthnicWearQuotePage() {
       <header className='sticky top-0 z-30 border-b border-zinc-200 bg-white/95 backdrop-blur'>
         <div className='mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6'>
           <img src={feelVieLogo} alt='FeelVie' className='h-9 w-auto object-contain' />
-          <div className='flex items-center gap-2'>
+          <div className='md:flex items-center gap-2 hidden '>
             <a  className='rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50'>
               View Products
             </a>
