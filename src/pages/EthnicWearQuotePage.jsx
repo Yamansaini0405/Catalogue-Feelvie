@@ -7,7 +7,7 @@ const dressTypes = ['Saree', 'Lehenga', 'Gown', 'Suit / Salwar', 'Kids Wear', 'C
 const occasions = ['Wedding', 'Party', 'Casual', 'Festival', 'Other']
 const fabricOptions = ['Silk', 'Cotton', 'Georgette', 'Chiffon', 'Velvet', 'Not Sure']
 const sizeOptions = ['XS', 'S', 'M', 'L', 'XL', 'XXL', 'Custom Measurements']
-const budgetOptions = ['Under ₹5000', '₹5000–₹10000', '₹10000–₹15000', '₹15000–₹20000', '₹20000–₹30000', '₹30000+']
+const budgetOptions = ['₹5000 - ₹10000', '₹10000 - ₹20000', '₹20000 - ₹30000', '₹30000 - ₹40000', '₹40000 - ₹50000', '₹50000 - ₹60000', '₹60000 - ₹70000', '₹70000 - ₹80000', '₹80000 - ₹90000', '₹90000 - ₹100000', 'Above ₹100000']
 
 const initialForm = {
   fullName: '',
@@ -138,7 +138,7 @@ function EthnicWearQuotePage() {
          
 
           <div className='p-6 md:p-10'>
-            <h1 className='text-3xl font-bold leading-tight md:text-5xl text-[#D6448B]'>Design Your Dream Ethnic Wear</h1>
+            <h1 className='text-3xl font-bold leading-tight md:text-5xl text-[#D6448B]'>Customize your Dream Dress</h1>
             <p className='mt-1 text-sm text-slate-600'>Fill details below and submit your requirement.</p>
 
             <form onSubmit={submitQuoteRequest} className='mt-6 space-y-5'>

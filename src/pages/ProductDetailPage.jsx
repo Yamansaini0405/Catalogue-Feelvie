@@ -1,4 +1,4 @@
-import { ArrowLeft, CircleAlert, Minus, Plus, Star } from 'lucide-react'
+import { ArrowLeft, CircleAlert, Star } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { getCatalogProductById, getCatalogPublicProducts } from '../services/authApi'
@@ -34,6 +34,8 @@ function ProductDetailPage() {
   })
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+  const [cursorPosition, setCursorPosition] = useState({ x: 50, y: 50 })
+  const [isHovering, setIsHovering] = useState(false)
 
   const isStandaloneProductPage = location.pathname.startsWith('/product/')
 
@@ -77,16 +79,31 @@ function ProductDetailPage() {
     setImageZoom(1)
   }, [selectedImageIndex, id])
 
-  const zoomIn = () => {
-    setImageZoom((previous) => Math.min(3, Number((previous + 0.25).toFixed(2))))
+  const handleImageMouseMove = (event) => {
+    const rect = event.currentTarget.getBoundingClientRect()
+    const x = ((event.clientX - rect.left) / rect.width) * 150
+    const y = ((event.clientY - rect.top) / rect.height) * 100
+    setCursorPosition({ x: Math.max(0, Math.min(100, x)), y: Math.max(0, Math.min(100, y)) })
+    setImageZoom(2)
   }
 
-  const zoomOut = () => {
-    setImageZoom((previous) => Math.max(1, Number((previous - 0.25).toFixed(2))))
+  const handleImageTouchMove = (event) => {
+    const rect = event.currentTarget.getBoundingClientRect()
+    const touch = event.touches[0]
+    const x = ((touch.clientX - rect.left) / rect.width) * 100
+    const y = ((touch.clientY - rect.top) / rect.height) * 100
+    setCursorPosition({ x: Math.max(0, Math.min(100, x)), y: Math.max(0, Math.min(100, y)) })
+    setImageZoom(2)
   }
 
-  const resetZoom = () => {
+  const handleImageMouseEnter = () => {
+    setIsHovering(true)
+  }
+
+  const handleImageMouseLeave = () => {
+    setIsHovering(false)
     setImageZoom(1)
+    setCursorPosition({ x: 50, y: 50 })
   }
 
   const onQuoteFieldChange = (event) => {
@@ -282,44 +299,13 @@ function ProductDetailPage() {
                   )}
                 </div>
 
-                <div className='relative overflow-hidden rounded-xl border border-slate-200 bg-slate-50'>
-                  <div className='absolute right-2 top-2 z-10 flex items-center gap-1 rounded-lg bg-white/95 p-1 shadow-sm'>
-                    <button
-                      type='button'
-                      onClick={zoomOut}
-                      disabled={imageZoom <= 1}
-                      className='rounded-md border border-slate-200 p-1 text-slate-700 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40'
-                      aria-label='Zoom out'
-                    >
-                      <Minus size={14} />
-                    </button>
-                    <span className='min-w-12 text-center text-xs font-medium text-slate-700'>
-                      {Math.round(imageZoom * 100)}%
-                    </span>
-                    <button
-                      type='button'
-                      onClick={zoomIn}
-                      disabled={imageZoom >= 3}
-                      className='rounded-md border border-slate-200 p-1 text-slate-700 hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40'
-                      aria-label='Zoom in'
-                    >
-                      <Plus size={14} />
-                    </button>
-                    <button
-                      type='button'
-                      onClick={resetZoom}
-                      className='rounded-md border border-slate-200 px-2 py-1 text-xs font-medium text-slate-700 hover:bg-slate-50'
-                    >
-                      Reset
-                    </button>
-                  </div>
-
+                <div className='relative overflow-hidden rounded-xl border border-slate-200 bg-slate-50 cursor-zoom-in' onMouseMove={handleImageMouseMove} onTouchMove={handleImageTouchMove} onMouseEnter={handleImageMouseEnter} onMouseLeave={handleImageMouseLeave}>
                   {selectedImage?.image_url || selectedImage?.image ? (
                     <img
                       src={selectedImage?.image_url || selectedImage?.image}
                       alt={selectedImage?.alt_text || product.name || 'Product image'}
                       className='h-85 w-full object-contain transition-transform duration-200 md:h-130'
-                      style={{ transform: `scale(${imageZoom})`, transformOrigin: 'center center' }}
+                      style={{ transform: `scale(${imageZoom})`, transformOrigin: `${cursorPosition.x}% ${cursorPosition.y}%` }}
                     />
                   ) : (
                     <div className='flex h-85 items-center justify-center text-sm text-slate-500 md:h-130'>
@@ -459,11 +445,12 @@ function ProductDetailPage() {
               <div className='mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5'>
                 {similarProducts.map((item) => {
                   const imageUrl = item?.images?.[0]?.image_url || item?.images?.[0]?.image
+                  const navigationPath = isStandaloneProductPage ? `/product/${item.id}` : `/products/${item.id}`
                   return (
                     <button
                       key={item.id}
                       type='button'
-                      onClick={() => navigate(`/product/${item.id}`)}
+                      onClick={() => navigate(navigationPath)}
                       className='rounded-xl border border-slate-200 p-2 text-left hover:border-fuchsia-400'
                     >
                       <div className='overflow-hidden rounded-lg bg-slate-100'>
