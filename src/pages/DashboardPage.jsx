@@ -309,7 +309,7 @@ function DashboardPage() {
                   <div className='mt-2 grid grid-cols-2 gap-2'>
                     <button
                       type='button'
-                      onClick={() => navigate(`/product/${product.id}`)}
+                      onClick={() => navigate(`/products/${product.id}`)}
                       className='rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50'
                     >
                       View Details
