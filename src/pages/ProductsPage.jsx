@@ -226,7 +226,7 @@ function ProductsPage() {
 
   return (
     <div className='min-h-screen bg-zinc-100'>
-      <div className='mx-auto max-w-full rounded-md bg-white p-4 md:p-8'>
+      <div className='mx-auto max-w-full rounded-md bg-white px-4 py-2 md:px-8 md:py-4'>
         <header className='flex flex-wrap items-center justify-between gap-4 border-b border-zinc-200 pb-5'>
           <img src={feelVieLogo} alt='FeelVie' className='h-9 w-auto object-contain md:h-11' />
 

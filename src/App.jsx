@@ -6,6 +6,7 @@ import DashboardPage from './pages/DashboardPage'
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
 import ProductDetailPage from './pages/ProductDetailPage'
+import PublicProductDetailPage from './pages/PublicProductDetailPage'
 import ProductsPage from './pages/ProductsPage'
 import RegisterPage from './pages/RegisterPage'
 import SharedProductPage from './pages/SharedProductPage'
@@ -28,6 +29,7 @@ function App() {
       <Route path='/register' element={<RegisterPage />} />
       <Route path='/login' element={<LoginPage />} />
       <Route path='/products' element={<ProductsPage />} />
+      <Route path='/product/:id' element={<PublicProductDetailPage />} />
       <Route path='/product/:ask-quoteid' element={<SharedProductPage />} />
       <Route
         element={
