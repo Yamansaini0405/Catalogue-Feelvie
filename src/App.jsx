@@ -1,4 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
+import ScrollToTop from './components/ScrollToTop'
 import SidebarLayout from './components/SidebarLayout'
 import AddProductPage from './pages/AddProductPage'
 import AddVariantPage from './pages/AddVariantPage'
@@ -26,11 +27,11 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<Navigate to='/register' replace />} />
-      <Route path='/register' element={<RegisterPage />} />
-      <Route path='/login' element={<LoginPage />} />
-      <Route path='/products' element={<ProductsPage />} />
-      <Route path='/product/:id' element={<PublicProductDetailPage />} />
-      <Route path='/product/:ask-quoteid' element={<SharedProductPage />} />
+      <Route path='/register' element={<><ScrollToTop /><RegisterPage /></>} />
+      <Route path='/login' element={<><ScrollToTop /><LoginPage /></>} />
+      <Route path='/products' element={<><ScrollToTop /><ProductsPage /></>} />
+      <Route path='/product/:id' element={<><ScrollToTop /><PublicProductDetailPage /></>} />
+      <Route path='/product/:ask-quoteid' element={<><ScrollToTop /><SharedProductPage /></>} />
       <Route
         element={
           <ProtectedRoute>
@@ -38,14 +39,14 @@ function App() {
           </ProtectedRoute>
         }
       >
-        <Route path='/home' element={<HomePage />} />
-        <Route path='/view-products' element={<DashboardPage />} />
-        <Route path='/products/:id' element={<ProductDetailPage />} />
-        <Route path='/add-product' element={<AddProductPage />} />
-        <Route path='/add-variant' element={<AddVariantPage />} />
+        <Route path='/home' element={<><ScrollToTop /><HomePage /></>} />
+        <Route path='/view-products' element={<><ScrollToTop /><DashboardPage /></>} />
+        <Route path='/products/:id' element={<><ScrollToTop /><ProductDetailPage /></>} />
+        <Route path='/add-product' element={<><ScrollToTop /><AddProductPage /></>} />
+        <Route path='/add-variant' element={<><ScrollToTop /><AddVariantPage /></>} />
         
       </Route>
-      <Route path='/ask-quote' element={<EthnicWearQuotePage />} />
+      <Route path='/ask-quote' element={<><ScrollToTop /><EthnicWearQuotePage /></>} />
       <Route path='*' element={<Navigate to='/register' replace />} />
     </Routes>
   )
