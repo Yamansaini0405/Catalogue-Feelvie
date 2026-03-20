@@ -1,6 +1,7 @@
 import { ArrowLeft, CircleAlert, Star } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
+import Loader from '../components/Loader'
 import { getCatalogProductById, getCatalogPublicProducts } from '../services/authApi'
 
 const FORMSPREE_QUOTE_ENDPOINT = import.meta.env.VITE_FORMSPREE_QUOTE_ENDPOINT ?? ''
@@ -242,13 +243,13 @@ function ProductDetailPage() {
   const discountPercent = hasValidDiscount ? Math.round(((originalPrice - sellingPrice) / originalPrice) * 100) : 0
   const isRentalProduct = product?.product_type === 'rental'
 
-  if (loading) {
-    return (
-      <section className='rounded-2xl bg-white p-6 shadow-lg'>
-        <p className='text-sm text-slate-600'>Loading product details...</p>
-      </section>
-    )
-  }
+  // if (loading) {
+  //   return (
+  //     <section className='rounded-2xl bg-white p-6 shadow-lg'>
+  //       <p className='text-sm text-slate-600'>Loading product details...</p>
+  //     </section>
+  //   )
+  // }
 
   if (error) {
     return (
@@ -268,7 +269,9 @@ function ProductDetailPage() {
   }
 
   return (
-    <section className='space-y-4'>
+    <>
+      {loading && <Loader />}
+      <section className='space-y-4'>
       {!isStandaloneProductPage && (
         <Link
           to='/view-products'
@@ -604,6 +607,7 @@ function ProductDetailPage() {
         </div>
       )}
     </section>
+    </>
   )
 }
 

@@ -8,6 +8,7 @@ import {
   SlidersHorizontal,
 } from 'lucide-react'
 import feelVieLogo from '../assets/feelVie.png'
+import Loader from '../components/Loader'
 import {
   getCatalogCategories,
   getCatalogPublicProducts,
@@ -28,6 +29,7 @@ function ProductsPage() {
   const [categories, setCategories] = useState([])
   const [products, setProducts] = useState([])
   const [currentPage, setCurrentPage] = useState(1)
+  const [loading, setLoading] = useState(true)
   const itemsPerPage = 12
 
   useEffect(() => {
@@ -56,24 +58,6 @@ function ProductsPage() {
       }
     }
 
-    fetchProducts()
-  }, [])
-
-
-  const totalPages = useMemo(() => Math.max(1, Math.ceil(products.length / itemsPerPage)), [products.length])
-
-  const productCards = useMemo(() => {
-    const start = (currentPage - 1) * itemsPerPage
-    return products.slice(start, start + itemsPerPage)
-  }, [currentPage, products])
-
-  useEffect(() => {
-    if (currentPage > totalPages) {
-      setCurrentPage(totalPages)
-    }
-  }, [currentPage, totalPages])
-
-  useEffect(() => {
     const fetchCarousels = async () => {
       try {
         const carousels = await getCommonCarousels()
@@ -89,7 +73,22 @@ function ProductsPage() {
       }
     }
 
-    fetchCarousels()
+    const fetchCategories = async () => {
+      try {
+        const data = await getCatalogCategories()
+        setCategories(Array.isArray(data) ? data : [])
+      } catch {
+        setCategories([])
+      }
+    }
+
+    const loadAllData = async () => {
+      setLoading(true)
+      await Promise.all([fetchProducts(), fetchCarousels(), fetchCategories()])
+      setLoading(false)
+    }
+
+    loadAllData()
   }, [])
 
   useEffect(() => {
@@ -102,18 +101,18 @@ function ProductsPage() {
     return () => window.clearInterval(slideInterval)
   }, [carouselBanners])
 
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const data = await getCatalogCategories()
-        setCategories(Array.isArray(data) ? data : [])
-      } catch {
-        setCategories([])
-      }
-    }
+  const totalPages = useMemo(() => Math.max(1, Math.ceil(products.length / itemsPerPage)), [products.length])
 
-    fetchCategories()
-  }, [])
+  const productCards = useMemo(() => {
+    const start = (currentPage - 1) * itemsPerPage
+    return products.slice(start, start + itemsPerPage)
+  }, [currentPage, products])
+
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      setCurrentPage(totalPages)
+    }
+  }, [currentPage, totalPages])
 
   const sizes = useMemo(() => {
     const allSizes = products.flatMap((product) =>
@@ -242,6 +241,7 @@ function ProductsPage() {
 
   return (
     <div className='min-h-screen bg-zinc-100'>
+      {loading && <Loader />}
       <div className='mx-auto max-w-full rounded-md bg-white px-4 py-2 md:px-8 md:py-4'>
         <header className='flex flex-wrap items-center justify-between gap-4 border-b border-zinc-200 pb-5'>
           <img src={feelVieLogo} alt='FeelVie' className='h-9 w-auto object-contain md:h-11' />

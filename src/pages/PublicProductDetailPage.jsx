@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom'
 import feelVieLogo from '../assets/feelVie.png'
+import Loader from '../components/Loader'
 import ProductDetailPage from './ProductDetailPage'
 
 function PublicProductDetailPage() {
@@ -7,6 +8,7 @@ function PublicProductDetailPage() {
 
   return (
     <div className='min-h-screen bg-zinc-100'>
+      {/* Loader will be shown by ProductDetailPage based on its loading state */}
       <div className='mx-auto max-w-full rounded-md bg-white px-4 py-2 md:px-8 md:py-4'>
         {/* Header */}
         <header className='flex flex-wrap items-center justify-between gap-4 border-b border-zinc-200 pb-5'>
