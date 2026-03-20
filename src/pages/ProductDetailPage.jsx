@@ -39,6 +39,13 @@ function ProductDetailPage() {
 
   const isStandaloneProductPage = location.pathname.startsWith('/product/')
 
+  const handleProductNavigation = (navigationPath) => {
+    if (isStandaloneProductPage) {
+      sessionStorage.setItem('productDetailScrollY', window.scrollY.toString())
+    }
+    navigate(navigationPath)
+  }
+
   useEffect(() => {
     const fetchProduct = async () => {
       if (!id) {
@@ -66,6 +73,18 @@ function ProductDetailPage() {
 
     fetchProduct()
   }, [id])
+
+  useEffect(() => {
+    if (isStandaloneProductPage) {
+      const savedScrollY = sessionStorage.getItem('productDetailScrollY')
+      if (savedScrollY) {
+        window.scrollTo(0, parseInt(savedScrollY, 10))
+        sessionStorage.removeItem('productDetailScrollY')
+      } else {
+        window.scrollTo(0, 0)
+      }
+    }
+  }, [id, isStandaloneProductPage])
 
   const images = useMemo(() => product?.images ?? [], [product])
   const variants = useMemo(() => product?.variants ?? [], [product])
@@ -450,7 +469,7 @@ function ProductDetailPage() {
                     <button
                       key={item.id}
                       type='button'
-                      onClick={() => navigate(navigationPath)}
+                      onClick={() => handleProductNavigation(navigationPath)}
                       className='rounded-xl border border-slate-200 p-2 text-left hover:border-fuchsia-400'
                     >
                       <div className='overflow-hidden rounded-lg bg-slate-100'>

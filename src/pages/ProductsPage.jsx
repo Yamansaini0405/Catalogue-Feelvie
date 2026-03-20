@@ -31,6 +31,21 @@ function ProductsPage() {
   const itemsPerPage = 12
 
   useEffect(() => {
+    const savedScrollY = sessionStorage.getItem('productsPageScrollY')
+    if (savedScrollY) {
+      window.scrollTo(0, parseInt(savedScrollY, 10))
+      sessionStorage.removeItem('productsPageScrollY')
+    } else {
+      window.scrollTo(0, 0)
+    }
+  }, [])
+
+  const handleProductClick = (productId) => {
+    sessionStorage.setItem('productsPageScrollY', window.scrollY.toString())
+    navigate(`/product/${productId}`)
+  }
+
+  useEffect(() => {
     const fetchProducts = async () => {
       try {
         const data = await getCatalogPublicProducts()
@@ -43,6 +58,7 @@ function ProductsPage() {
 
     fetchProducts()
   }, [])
+
 
   const totalPages = useMemo(() => Math.max(1, Math.ceil(products.length / itemsPerPage)), [products.length])
 
@@ -385,7 +401,7 @@ function ProductsPage() {
                   <article
                     key={product.id}
                     className='group cursor-pointer'
-                    onClick={() => navigate(`/product/${product.id}`)}
+                    onClick={() => handleProductClick(product.id)}
                   >
                     <div className='relative aspect-3/4 overflow-hidden rounded-2xl bg-zinc-100'>
                       {image ? (

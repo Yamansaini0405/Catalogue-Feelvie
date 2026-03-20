@@ -30,7 +30,7 @@ function App() {
       <Route path='/register' element={<><ScrollToTop /><RegisterPage /></>} />
       <Route path='/login' element={<><ScrollToTop /><LoginPage /></>} />
       <Route path='/products' element={<><ScrollToTop /><ProductsPage /></>} />
-      <Route path='/product/:id' element={<><ScrollToTop /><PublicProductDetailPage /></>} />
+      <Route path='/product/:id' element={<PublicProductDetailPage />} />
       <Route path='/product/:ask-quoteid' element={<><ScrollToTop /><SharedProductPage /></>} />
       <Route
         element={
