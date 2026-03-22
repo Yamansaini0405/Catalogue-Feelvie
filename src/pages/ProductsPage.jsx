@@ -232,11 +232,11 @@ function ProductsPage() {
     <div className='min-h-screen bg-zinc-100'>
       {loading && <Loader />}
       <div className='mx-auto max-w-full rounded-md bg-white px-4 py-2 md:px-8 md:py-4'>
-        <header className='flex flex-wrap items-center justify-between gap-4 border-b border-zinc-200 pb-5'>
+        <header className='flex items-center justify-between gap-4 border-b border-zinc-200 pb-5'>
           <img src={feelVieLogo} alt='FeelVie' className='h-9 w-auto object-contain md:h-11' />
 
-          <div className='flex w-full max-w-lg items-center gap-3 md:w-auto'>
-            <label className='relative flex-1 hidden md:block'>
+          <div className='flex items-center gap-3'>
+            <label className='relative hidden md:flex md:w-80'>
               <Search size={16} className='pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400' />
               <input
                 type='search'
@@ -422,7 +422,10 @@ function ProductsPage() {
             <div className='mt-8 flex items-center justify-center gap-2 text-sm text-zinc-500'>
               <button
                 type='button'
-                onClick={() => setCurrentPage((prevPage) => Math.max(1, prevPage - 1))}
+                onClick={() => {
+                  window.scrollTo(0, 0)
+                  setCurrentPage((prevPage) => Math.max(1, prevPage - 1))
+                }}
                 disabled={currentPage === 1}
                 className='flex items-center gap-1 rounded-full border border-zinc-300 px-3 py-1.5 disabled:cursor-not-allowed disabled:opacity-40'
               >
@@ -442,7 +445,10 @@ function ProductsPage() {
                   <button
                     key={item}
                     type='button'
-                    onClick={() => setCurrentPage(item)}
+                    onClick={() => {
+                      window.scrollTo(0, 0)
+                      setCurrentPage(item)
+                    }}
                     className={`h-8 w-8 rounded-full ${item === currentPage ? 'bg-zinc-100 text-zinc-900' : 'text-zinc-500'}`}
                   >
                     {item}
@@ -452,7 +458,10 @@ function ProductsPage() {
 
               <button
                 type='button'
-                onClick={() => setCurrentPage((prevPage) => Math.min(totalPages, prevPage + 1))}
+                onClick={() => {
+                  window.scrollTo(0, 0)
+                  setCurrentPage((prevPage) => Math.min(totalPages, prevPage + 1))
+                }}
                 disabled={currentPage === totalPages}
                 className='flex items-center gap-1 rounded-full border border-zinc-300 px-3 py-1.5 text-zinc-900 disabled:cursor-not-allowed disabled:opacity-40'
               >
