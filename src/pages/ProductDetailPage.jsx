@@ -284,8 +284,9 @@ function ProductDetailPage() {
       <button
         type='button'
         onClick={() => {
-          navigate(-1)
           window.scrollTo(0, 0)
+          navigate(-1)
+          
         }}
         className='inline-flex items-center gap-1 rounded-lg border border-slate-300 px-2.5 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-50'
       >
