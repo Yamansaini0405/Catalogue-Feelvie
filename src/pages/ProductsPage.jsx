@@ -236,7 +236,7 @@ function ProductsPage() {
           <img src={feelVieLogo} alt='FeelVie' className='h-9 w-auto object-contain md:h-11' />
 
           <div className='flex w-full max-w-lg items-center gap-3 md:w-auto'>
-            <label className='relative flex-1'>
+            <label className='relative flex-1 hidden md:block'>
               <Search size={16} className='pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400' />
               <input
                 type='search'
