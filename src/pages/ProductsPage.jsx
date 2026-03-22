@@ -32,18 +32,7 @@ function ProductsPage() {
   const [loading, setLoading] = useState(true)
   const itemsPerPage = 12
 
-  useEffect(() => {
-    const savedScrollY = sessionStorage.getItem('productsPageScrollY')
-    if (savedScrollY) {
-      window.scrollTo(0, parseInt(savedScrollY, 10))
-      sessionStorage.removeItem('productsPageScrollY')
-    } else {
-      window.scrollTo(0, 0)
-    }
-  }, [])
-
   const handleProductClick = (productId) => {
-    sessionStorage.setItem('productsPageScrollY', window.scrollY.toString())
     navigate(`/product/${productId}`)
   }
 
