@@ -253,3 +253,4 @@ export const getCommonCarousels = async () => {
 
   return Array.isArray(data) ? data : []
 }
+export const deleteAccountRequest = (payload) => request('/api/auth/delete-account/', payload)
