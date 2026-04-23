@@ -27,6 +27,8 @@ export const registerOwner = (payload) => request('/api/auth/register/', payload
 
 export const loginOwner = (payload) => request('/api/auth/login/', payload)
 
+export const forgotPassword = (payload) => request('/api/auth/forgot-password/', payload)
+
 export const getCatalogProducts = async (token) => {
   const response = await fetch(`${API_BASE_URL}/api/catalog/products/my_products/`, {
     method: 'GET',

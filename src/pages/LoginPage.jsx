@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import AuthCard from '../components/AuthCard'
+import ForgotPasswordModal from '../components/ForgotPasswordModal'
 import { getTokenFromResponse, loginOwner } from '../services/authApi'
 
 const initialLoginForm = {
@@ -21,6 +22,7 @@ function LoginPage() {
   const [error, setError] = useState('')
   const [success, setSuccess] = useState('')
   const [token, setToken] = useState(localStorage.getItem('authToken') ?? '')
+  const [showForgotPasswordModal, setShowForgotPasswordModal] = useState(false)
 
   useEffect(() => {
     if (location.state?.fromRegister) {
@@ -95,7 +97,18 @@ function LoginPage() {
         >
           {loading ? 'Submitting...' : 'Login'}
         </button>
+        <div className='text-center'>
+          <button
+            type='button'
+            onClick={() => setShowForgotPasswordModal(true)}
+            className='text-sm text-slate-600 hover:text-slate-900 font-medium'
+          >
+            Forgot Password?
+          </button>
+        </div>
       </form>
+
+      <ForgotPasswordModal isOpen={showForgotPasswordModal} onClose={() => setShowForgotPasswordModal(false)} />
     </AuthCard>
   )
 }

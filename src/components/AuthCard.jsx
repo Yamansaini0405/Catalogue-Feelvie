@@ -35,16 +35,11 @@ function AuthCard({ title, error, success, token, children }) {
 
         {error && <p className='mt-4 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700'>{error}</p>}
         {success && <p className='mt-4 rounded-lg bg-green-50 px-3 py-2 text-sm text-green-700'>{success}</p>}
-
-        {token && (
-          <div className='mt-4 rounded-lg bg-slate-100 p-3 text-xs text-slate-700'>
-            <p className='font-semibold text-slate-800'>Saved Token</p>
-            <p className='mt-1 break-all'>{token}</p>
-          </div>
-        )}
       </section>
     </main>
   )
 }
 
 export default AuthCard
+
+
