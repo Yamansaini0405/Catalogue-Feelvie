@@ -5,6 +5,7 @@ import {
   getCatalogColors,
   getCatalogSizes,
 } from '../services/authApi'
+import ColorPicker from '../components/ColorPicker'
 
 const conditionOptions = [
   { value: 'new', label: 'New' },
@@ -43,6 +44,9 @@ function AddProductPage() {
   const [categories, setCategories] = useState([])
   const [colors, setColors] = useState([])
   const [sizes, setSizes] = useState([])
+  const [customColors, setCustomColors] = useState([])
+  const [newColorHex, setNewColorHex] = useState('#FF0000')
+  const [newColorName, setNewColorName] = useState('')
   const [loadingMaster, setLoadingMaster] = useState(true)
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState('')
@@ -77,7 +81,11 @@ function AddProductPage() {
     loadMasterData()
   }, [])
 
-  const colorMap = useMemo(() => Object.fromEntries(colors.map((item) => [item.id, item])), [colors])
+  const colorMap = useMemo(() => {
+    const serverMap = Object.fromEntries(colors.map((item) => [item.id, item]))
+    const customMap = Object.fromEntries(customColors.map((item) => [item.id, item]))
+    return { ...serverMap, ...customMap }
+  }, [colors, customColors])
   const sizeMap = useMemo(() => Object.fromEntries(sizes.map((item) => [item.id, item])), [sizes])
 
   const onChange = (event) => {
@@ -107,6 +115,38 @@ function AddProductPage() {
           : [...previous.selectedSizeIds, sizeId],
       }
     })
+  }
+
+  const addCustomColor = () => {
+    if (!newColorHex.trim() || !newColorName.trim()) {
+      setError('Please enter both color name and hex code')
+      return
+    }
+
+    const colorId = `custom-${Date.now()}`
+    const newColor = {
+      id: colorId,
+      name: newColorName.trim(),
+      hex_code: newColorHex,
+      isCustom: true,
+    }
+
+    setCustomColors((previous) => [...previous, newColor])
+    setForm((previous) => ({
+      ...previous,
+      selectedColorIds: [...previous.selectedColorIds, colorId],
+    }))
+    setNewColorName('')
+    setNewColorHex('#FF0000')
+    setError('')
+  }
+
+  const removeCustomColor = (colorId) => {
+    setCustomColors((previous) => previous.filter((color) => color.id !== colorId))
+    setForm((previous) => ({
+      ...previous,
+      selectedColorIds: previous.selectedColorIds.filter((id) => id !== colorId),
+    }))
   }
 
   const onImageChange = (event) => {
@@ -377,36 +417,108 @@ function AddProductPage() {
           />
         </label>
 
-        <div className='space-y-2'>
+        <div className='space-y-2 md:col-span-2 lg:col-span-1'>
           <p className='text-sm text-slate-700'>Colors </p>
-          <div className='max-h-40 space-y-2 overflow-auto rounded-lg border border-slate-300 p-2'>
-            {colors.map((color) => (
-              <label key={color.id} className='flex items-center gap-2 text-sm text-slate-700'>
-                <input
-                  type='checkbox'
-                  checked={form.selectedColorIds.includes(color.id)}
-                  onChange={() => toggleColor(color.id)}
-                />
-                <span>{color.name}</span>
-                <span className='text-xs text-slate-500'>{color.hex_code}</span>
-              </label>
-            ))}
+          <div className='max-h-64 space-y-2 overflow-auto rounded-lg border border-slate-300 p-3'>
+            {colors.length === 0 && customColors.length === 0 ? (
+              <p className='text-center text-sm text-slate-500'>No colors available</p>
+            ) : (
+              <>
+                {colors.map((color) => (
+                  <label
+                    key={color.id}
+                    className='flex items-center gap-3 rounded-lg border border-slate-200 p-2 cursor-pointer transition-colors hover:bg-slate-50'
+                  >
+                    <input
+                      type='checkbox'
+                      checked={form.selectedColorIds.includes(color.id)}
+                      onChange={() => toggleColor(color.id)}
+                      className='h-4 w-4 cursor-pointer'
+                    />
+                    <div
+                      className='h-6 w-6 rounded border border-slate-300'
+                      style={{ backgroundColor: color.hex_code }}
+                      title={color.hex_code}
+                    />
+                    <span className='text-sm text-slate-700 flex-1'>{color.name}</span>
+                    <span className='text-xs text-slate-500 font-mono'>{color.hex_code}</span>
+                  </label>
+                ))}
+
+                {customColors.map((color) => (
+                  <div
+                    key={color.id}
+                    className='flex items-center gap-3 rounded-lg border border-amber-200 bg-amber-50 p-2'
+                  >
+                    <input
+                      type='checkbox'
+                      checked={form.selectedColorIds.includes(color.id)}
+                      onChange={() => toggleColor(color.id)}
+                      className='h-4 w-4 cursor-pointer'
+                    />
+                    <div
+                      className='h-6 w-6 rounded border border-slate-300'
+                      style={{ backgroundColor: color.hex_code }}
+                      title={color.hex_code}
+                    />
+                    <span className='text-sm text-slate-700 flex-1'>{color.name}</span>
+                    <span className='text-xs text-slate-500 font-mono'>{color.hex_code}</span>
+                    <button
+                      type='button'
+                      onClick={() => removeCustomColor(color.id)}
+                      className='text-xs text-amber-600 hover:text-amber-700 font-medium'
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ))}
+              </>
+            )}
+          </div>
+
+          <div className='rounded-lg border border-slate-200 bg-slate-50 p-3 space-y-2'>
+            <p className='text-xs font-medium text-slate-600 uppercase'>Add Custom Color</p>
+            <div className='space-y-2'>
+              <input
+                type='text'
+                value={newColorName}
+                onChange={(e) => setNewColorName(e.target.value)}
+                placeholder='Color name (e.g., Sky Blue)'
+                className='w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500'
+              />
+              <ColorPicker hexCode={newColorHex} onColorSelect={setNewColorHex} />
+              <button
+                type='button'
+                onClick={addCustomColor}
+                className='w-full rounded-lg bg-slate-900 text-white px-3 py-2 text-sm font-medium hover:bg-slate-800 transition-colors'
+              >
+                Add Color
+              </button>
+            </div>
           </div>
         </div>
 
-        <div className='space-y-2'>
+        <div className='space-y-2 md:col-span-2 lg:col-span-1'>
           <p className='text-sm text-slate-700'>Sizes </p>
-          <div className='max-h-40 space-y-2 overflow-auto rounded-lg border border-slate-300 p-2'>
-            {sizes.map((size) => (
-              <label key={size.id} className='flex items-center gap-2 text-sm text-slate-700'>
-                <input
-                  type='checkbox'
-                  checked={form.selectedSizeIds.includes(size.id)}
-                  onChange={() => toggleSize(size.id)}
-                />
-                <span>{size.size_display ?? size.size}</span>
-              </label>
-            ))}
+          <div className='max-h-64 space-y-2 overflow-auto rounded-lg border border-slate-300 p-3'>
+            {sizes.length === 0 ? (
+              <p className='text-center text-sm text-slate-500'>No sizes available</p>
+            ) : (
+              sizes.map((size) => (
+                <label
+                  key={size.id}
+                  className='flex items-center gap-3 rounded-lg border border-slate-200 p-2 cursor-pointer transition-colors hover:bg-slate-50'
+                >
+                  <input
+                    type='checkbox'
+                    checked={form.selectedSizeIds.includes(size.id)}
+                    onChange={() => toggleSize(size.id)}
+                    className='h-4 w-4 cursor-pointer'
+                  />
+                  <span className='text-sm text-slate-700 flex-1 font-medium'>{size.size_display ?? size.size}</span>
+                </label>
+              ))
+            )}
           </div>
         </div>
 
