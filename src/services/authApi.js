@@ -255,4 +255,12 @@ export const getCommonCarousels = async () => {
 
   return Array.isArray(data) ? data : []
 }
+
+export const submitCommonQuery = (payload) =>
+  request('/api/common/queries/', {
+    user_id: 0,
+    status: 'pending',
+    ...payload,
+  })
+
 export const deleteAccountRequest = (payload) => request('/api/auth/delete-account/', payload)

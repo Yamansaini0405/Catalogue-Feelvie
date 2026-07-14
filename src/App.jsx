@@ -14,7 +14,7 @@ import SharedProductPage from './pages/SharedProductPage'
 import EthnicWearQuotePage from './pages/EthnicWearQuotePage'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import AccountDeletePage from './pages/AccountDeletePage'
-
+import ChatBot from './pages/ChatBot'
 function ProtectedRoute({ children }) {
   const token = localStorage.getItem('authToken')
 
@@ -32,8 +32,7 @@ function App() {
       <Routes>
       <Route path='/' element={<Navigate to='/register' replace />} />
       <Route path='/register' element={<RegisterPage />} />
-      <Route path='/login' element={<LoginPage />} />
-      <Route path='/products' element={<ProductsPage />} />
+      <Route path='/login' element={<LoginPage />} />      <Route path='/products' element={<ProductsPage />} />
       <Route path='/product/:id' element={<PublicProductDetailPage />} />
       <Route path='/product/:ask-quoteid' element={<SharedProductPage />} />
       <Route
@@ -51,6 +50,7 @@ function App() {
         
       </Route>
       <Route path='/ask-quote' element={<EthnicWearQuotePage />} />
+      <Route path='/chatbot' element={<ChatBot />} />
       <Route path='/privacy-policy' element={<PrivacyPolicyPage />} />
       <Route path='/delete-account' element={<AccountDeletePage />} />
       <Route path='*' element={<Navigate to='/register' replace />} />
