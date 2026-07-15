@@ -50,7 +50,7 @@ function App() {
         
       </Route>
       <Route path='/ask-quote' element={<EthnicWearQuotePage />} />
-      <Route path='/chatbot' element={<ChatBot />} />
+      <Route path='/chat' element={<ChatBot />} />
       <Route path='/privacy-policy' element={<PrivacyPolicyPage />} />
       <Route path='/delete-account' element={<AccountDeletePage />} />
       <Route path='*' element={<Navigate to='/register' replace />} />
