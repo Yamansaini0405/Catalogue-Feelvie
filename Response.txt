@@ -1,0 +1,2296 @@
+[
+    {
+        "id": 15,
+        "seller": 20,
+        "seller_id": 20,
+        "seller_email": "sainiyaman60@gmail.com",
+        "category": 6,
+        "name": "Kurta",
+        "description": "Mens kurta for shaafi and functions",
+        "product_type": "new",
+        "original_price": "3000.00",
+        "selling_price": "2899.00",
+        "currency": "INR",
+        "condition": "new",
+        "status": "draft",
+        "shipping_option": "pickup",
+        "pickup_address": null,
+        "rental_price_per_day": null,
+        "late_return_penalty": "0.00",
+        "damage_protection_fee": "0.00",
+        "is_customizable": false,
+        "has_variants": true,
+        "base_sku": "SKU-1773462413118",
+        "stock_quantity": 1,
+        "is_active": true,
+        "created_at": "2026-03-14T09:57:08.943629+05:30",
+        "updated_at": "2026-03-14T09:57:08.943644+05:30",
+        "images": [
+            {
+                "id": 31,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000094703.png",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000094703.png",
+                "alt_text": "Product image 1",
+                "sort_order": 0
+            }
+        ],
+        "variants": [
+            {
+                "id": 100,
+                "color": {
+                    "id": 10,
+                    "name": "Pink",
+                    "hex_code": "#EC4899"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Pink-M-413120",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 101,
+                "color": {
+                    "id": 10,
+                    "name": "Pink",
+                    "hex_code": "#EC4899"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Pink-L-413120",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 102,
+                "color": {
+                    "id": 10,
+                    "name": "Pink",
+                    "hex_code": "#EC4899"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Pink-XL-413120",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            }
+        ],
+        "rental_availability": null
+    },
+    {
+        "id": 14,
+        "seller": 7,
+        "seller_id": 7,
+        "seller_email": "test@gmail.com",
+        "category": 6,
+        "name": "One piece",
+        "description": "three piece suit for mens brown color",
+        "product_type": "new",
+        "original_price": "12000.00",
+        "selling_price": "9999.00",
+        "currency": "INR",
+        "condition": "new",
+        "status": "draft",
+        "shipping_option": "pickup",
+        "pickup_address": null,
+        "rental_price_per_day": null,
+        "late_return_penalty": "0.00",
+        "damage_protection_fee": "0.00",
+        "is_customizable": false,
+        "has_variants": true,
+        "base_sku": "SKU-1773461156500",
+        "stock_quantity": 1,
+        "is_active": true,
+        "created_at": "2026-03-14T09:35:56.702030+05:30",
+        "updated_at": "2026-03-14T09:35:56.702044+05:30",
+        "images": [
+            {
+                "id": 30,
+                "image": "https://feelvie.yaytech.in/uploads/products/mens-houndstooth-three-piece-suit-vest-blue-knit-tie-outfit-ideas-5-664x752.webp",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/mens-houndstooth-three-piece-suit-vest-blue-knit-tie-outfit-ideas-5-664x752.webp",
+                "alt_text": "Product image 1",
+                "sort_order": 0
+            }
+        ],
+        "variants": [
+            {
+                "id": 98,
+                "color": {
+                    "id": 11,
+                    "name": "Brown",
+                    "hex_code": "#8B4513"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Brown-M-156500",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 99,
+                "color": {
+                    "id": 11,
+                    "name": "Brown",
+                    "hex_code": "#8B4513"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Brown-L-156500",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            }
+        ],
+        "rental_availability": null
+    },
+    {
+        "id": 13,
+        "seller": 2,
+        "seller_id": 2,
+        "seller_email": "ankitk12390@gmail.com",
+        "category": 6,
+        "name": "Kurta dress",
+        "description": "ARTISAN White men Kurta And Pyjama set For 100% Cotton Trendy Classy Essential Comfy Ethnic Fancy Deseigner straiht \r\nName:        ARTISAN White men Kurta And Pyjama set For 100% Cotton Trendy Classy Essential Comfy Ethnic Fancy Deseigner straiht \r\nTop Fabric: Cotton Blend\r\nBottom Fabric: Cotton Blend\r\nScarf Fabric: Cotton\r\nSleeve Length: Long Sleeves\r\nBottom Type: Straight Pajama\r\nStitch Type: Stitched\r\nPattern: Solid\r\nSizes:\r\nM (Chest Size: 21 in, Top Length Size: 39 in, Top Waist  Size: 32 in, Top Hip Size: 40 in, Bottom Waist Size: 32 in, Bottom Hip Size: 34 in, Bottom Length Size: 42 in) \r\nL (Chest Size: 22 in, Top Length Size: 40 in, Top Waist  Size: 34 in, Top Hip Size: 42 in, Bottom Waist Size: 33 in, Bottom Hip Size: 36 in, Bottom Length Size: 43 in) \r\nXL (Chest Size: 23 in, Top Length Size: 42 in, Top Waist  Size: 36 in, Top Hip Size: 44 in, Bottom Waist Size: 34 in, Bottom Hip Size: 38 in, Bottom Length Size: 44 in) \r\nXXL (Chest Size: 24 in, Top Length Size: 43 in, Top Waist  Size: 38 in, Top Hip Size: 46 in, Bottom Waist Size: 35 in, Bottom Hip Size: 40 in, Bottom Length Size: 45 in) \r\n\r\nkurta:ARTISAN KURTAS new Arivval Traditional Indian Wear. it is Customised our Expert Designer for Letest Trendy\r\n       Light Weight premium qiality Fabric for our valuable customer comfort and ease of movement. this kurta is knees length,\r\n       full sleeve,mandarin collar,side slits. this  best selling Ethnic kurta is bright to you tunic casual wear for special \r\n       occasions your look eye catching.  \r\npyjama:pyjama is light weight cotton blend fabric. pyjama are typically loose fitting and comfortable and ease of movement.\r\nWash Care Detail:regular machine wash and hand wash\r\n Occasion:Weddigs,Festivals,Janmastmi,Dussehra,Ganesh Chaurthi,Raksha Bandhan,Holi,Onam \r\n             Navratri,Cristmas,Makar Sakranti,Navratri,Cristmas,Makar Sakranti,party and gret for gifting\r\n             ARTISAN KURTAS designe for printed kurta lucknowi work kurtas embidery morror work chikan kari\r\n             casual kurtas sadree waistcoat punjabi kurta pyjama lucknowi pathani kurta and ethnic kurta \r\n             and many colour yellow made for haldi rasam,haldi ceremony,sky blue,black,white,orange,pink and many mor\r\nmen kurta pajama yellow\r\nmen kurta pajama set\r\nkurta pyjama set\r\nkurta pyjama men\r\nkurta pyjamas men\r\nkurta pyjama for mens\r\nkurta design\r\nkurta pajama for men yellow\r\nyellow kurta for men\r\nkurta pajama white\r\nkurta pajama black colour\r\npila kurta gents\r\nkurta men pajama\r\nwhite kurta men\r\n\r\n \r\n        \r\nCountry of Origin: India",
+        "product_type": "new",
+        "original_price": "1800.00",
+        "selling_price": "999.00",
+        "currency": "INR",
+        "condition": "new",
+        "status": "published",
+        "shipping_option": "pickup",
+        "pickup_address": null,
+        "rental_price_per_day": null,
+        "late_return_penalty": "0.00",
+        "damage_protection_fee": "0.00",
+        "is_customizable": false,
+        "has_variants": true,
+        "base_sku": "SKU-1772250663688",
+        "stock_quantity": 5,
+        "is_active": true,
+        "created_at": "2026-02-28T09:21:44.938299+05:30",
+        "updated_at": "2026-03-01T00:41:39.909502+05:30",
+        "images": [
+            {
+                "id": 28,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000063019_jmNHXIz.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000063019_jmNHXIz.jpg",
+                "alt_text": "Product image 1",
+                "sort_order": 0
+            },
+            {
+                "id": 29,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000063020_AhQNLzT.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000063020_AhQNLzT.jpg",
+                "alt_text": "Product image 2",
+                "sort_order": 1
+            }
+        ],
+        "variants": [
+            {
+                "id": 92,
+                "color": {
+                    "id": 2,
+                    "name": "Charcoal",
+                    "hex_code": "#333333"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Charcoal-m-663689",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 93,
+                "color": {
+                    "id": 2,
+                    "name": "Charcoal",
+                    "hex_code": "#333333"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Charcoal-l-663689",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 94,
+                "color": {
+                    "id": 2,
+                    "name": "Charcoal",
+                    "hex_code": "#333333"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Charcoal-xl-663689",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 89,
+                "color": {
+                    "id": 3,
+                    "name": "Gray",
+                    "hex_code": "#808080"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Gray-m-663689",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 90,
+                "color": {
+                    "id": 3,
+                    "name": "Gray",
+                    "hex_code": "#808080"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Gray-l-663689",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 91,
+                "color": {
+                    "id": 3,
+                    "name": "Gray",
+                    "hex_code": "#808080"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Gray-xl-663689",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 95,
+                "color": {
+                    "id": 11,
+                    "name": "Brown",
+                    "hex_code": "#8B4513"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Brown-m-663689",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 96,
+                "color": {
+                    "id": 11,
+                    "name": "Brown",
+                    "hex_code": "#8B4513"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Brown-l-663689",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 97,
+                "color": {
+                    "id": 11,
+                    "name": "Brown",
+                    "hex_code": "#8B4513"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Brown-xl-663689",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            }
+        ],
+        "rental_availability": null
+    },
+    {
+        "id": 12,
+        "seller": 2,
+        "seller_id": 2,
+        "seller_email": "ankitk12390@gmail.com",
+        "category": 6,
+        "name": "Men Dress",
+        "description": "Fit\r\nRegular Fit\r\nFabrics\r\nCotton\r\nSustainable\r\nRegular\r\nA\r\nProduct Details\r\n· Black Tshirt for men . Geometric printed ·Reqular length\r\n· Round neck\r\n· Three-quarter, reqular sleeves\r\n·Knitted cotton fabric\r\nSize& Fit\r\nReqular Fit\r\nThe model (height 6') is wearing a size M\r\nMaterial & Care\r\nWash Dark Colors Seperately, Hand Wash/Machine Wash Cold, Use Mild Detergent, Do Not Wring, Flat Dry In Shade,",
+        "product_type": "new",
+        "original_price": "800.00",
+        "selling_price": "559.00",
+        "currency": "INR",
+        "condition": "new",
+        "status": "published",
+        "shipping_option": "pickup",
+        "pickup_address": null,
+        "rental_price_per_day": null,
+        "late_return_penalty": "0.00",
+        "damage_protection_fee": "0.00",
+        "is_customizable": false,
+        "has_variants": true,
+        "base_sku": "SKU-1772229439867",
+        "stock_quantity": 5,
+        "is_active": true,
+        "created_at": "2026-02-28T03:27:20.623152+05:30",
+        "updated_at": "2026-03-01T00:43:11.397976+05:30",
+        "images": [
+            {
+                "id": 24,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000062908_I5WoslR.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000062908_I5WoslR.jpg",
+                "alt_text": "Product image 1",
+                "sort_order": 0
+            },
+            {
+                "id": 25,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000062907_mBnXNJM.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000062907_mBnXNJM.jpg",
+                "alt_text": "Product image 2",
+                "sort_order": 1
+            },
+            {
+                "id": 26,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000062906_pgK0Olv.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000062906_pgK0Olv.jpg",
+                "alt_text": "Product image 3",
+                "sort_order": 2
+            },
+            {
+                "id": 27,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000062904_1T4kF6w.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000062904_1T4kF6w.jpg",
+                "alt_text": "Product image 4",
+                "sort_order": 3
+            }
+        ],
+        "variants": [
+            {
+                "id": 74,
+                "color": {
+                    "id": 2,
+                    "name": "Charcoal",
+                    "hex_code": "#333333"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Charcoal-m-439868",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 75,
+                "color": {
+                    "id": 2,
+                    "name": "Charcoal",
+                    "hex_code": "#333333"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Charcoal-l-439868",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 76,
+                "color": {
+                    "id": 2,
+                    "name": "Charcoal",
+                    "hex_code": "#333333"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Charcoal-xl-439868",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 77,
+                "color": {
+                    "id": 3,
+                    "name": "Gray",
+                    "hex_code": "#808080"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Gray-m-439868",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 78,
+                "color": {
+                    "id": 3,
+                    "name": "Gray",
+                    "hex_code": "#808080"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Gray-l-439868",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 79,
+                "color": {
+                    "id": 3,
+                    "name": "Gray",
+                    "hex_code": "#808080"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Gray-xl-439868",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 80,
+                "color": {
+                    "id": 6,
+                    "name": "Blue",
+                    "hex_code": "#2563EB"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Blue-m-439868",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 81,
+                "color": {
+                    "id": 6,
+                    "name": "Blue",
+                    "hex_code": "#2563EB"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Blue-l-439868",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 82,
+                "color": {
+                    "id": 6,
+                    "name": "Blue",
+                    "hex_code": "#2563EB"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Blue-xl-439868",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 83,
+                "color": {
+                    "id": 7,
+                    "name": "Sky Blue",
+                    "hex_code": "#60A5FA"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Sky Blue-m-439868",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 84,
+                "color": {
+                    "id": 7,
+                    "name": "Sky Blue",
+                    "hex_code": "#60A5FA"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Sky Blue-l-439868",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 85,
+                "color": {
+                    "id": 7,
+                    "name": "Sky Blue",
+                    "hex_code": "#60A5FA"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Sky Blue-xl-439868",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 86,
+                "color": {
+                    "id": 9,
+                    "name": "Olive",
+                    "hex_code": "#6B7280"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Olive-m-439868",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 87,
+                "color": {
+                    "id": 9,
+                    "name": "Olive",
+                    "hex_code": "#6B7280"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Olive-l-439868",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 88,
+                "color": {
+                    "id": 9,
+                    "name": "Olive",
+                    "hex_code": "#6B7280"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Olive-xl-439868",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            }
+        ],
+        "rental_availability": null
+    },
+    {
+        "id": 11,
+        "seller": 2,
+        "seller_id": 2,
+        "seller_email": "ankitk12390@gmail.com",
+        "category": null,
+        "name": "Blazer",
+        "description": "Best quality",
+        "product_type": "new",
+        "original_price": "1100.00",
+        "selling_price": "650.00",
+        "currency": "INR",
+        "condition": "new",
+        "status": "published",
+        "shipping_option": "pickup",
+        "pickup_address": null,
+        "rental_price_per_day": null,
+        "late_return_penalty": "0.00",
+        "damage_protection_fee": "0.00",
+        "is_customizable": false,
+        "has_variants": true,
+        "base_sku": "SKU-1772173545615",
+        "stock_quantity": 5,
+        "is_active": true,
+        "created_at": "2026-02-27T11:55:46.395607+05:30",
+        "updated_at": "2026-03-01T00:41:25.441443+05:30",
+        "images": [
+            {
+                "id": 22,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000062908.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000062908.jpg",
+                "alt_text": "Product image 1",
+                "sort_order": 0
+            },
+            {
+                "id": 23,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000062907_1PYcUg4.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000062907_1PYcUg4.jpg",
+                "alt_text": "Product image 2",
+                "sort_order": 1
+            }
+        ],
+        "variants": [
+            {
+                "id": 72,
+                "color": {
+                    "id": 3,
+                    "name": "Gray",
+                    "hex_code": "#808080"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Gray-l-545616",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 73,
+                "color": {
+                    "id": 3,
+                    "name": "Gray",
+                    "hex_code": "#808080"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Gray-xl-545616",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 70,
+                "color": {
+                    "id": 9,
+                    "name": "Olive",
+                    "hex_code": "#6B7280"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Olive-l-545616",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 71,
+                "color": {
+                    "id": 9,
+                    "name": "Olive",
+                    "hex_code": "#6B7280"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Olive-xl-545616",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 68,
+                "color": {
+                    "id": 11,
+                    "name": "Brown",
+                    "hex_code": "#8B4513"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Brown-l-545616",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 69,
+                "color": {
+                    "id": 11,
+                    "name": "Brown",
+                    "hex_code": "#8B4513"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Brown-xl-545616",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            }
+        ],
+        "rental_availability": null
+    },
+    {
+        "id": 9,
+        "seller": 2,
+        "seller_id": 2,
+        "seller_email": "ankitk12390@gmail.com",
+        "category": null,
+        "name": "Men dress",
+        "description": "Good quality",
+        "product_type": "new",
+        "original_price": "2500.00",
+        "selling_price": "999.00",
+        "currency": "INR",
+        "condition": "new",
+        "status": "published",
+        "shipping_option": "pickup",
+        "pickup_address": null,
+        "rental_price_per_day": null,
+        "late_return_penalty": "0.00",
+        "damage_protection_fee": "0.00",
+        "is_customizable": false,
+        "has_variants": true,
+        "base_sku": "SKU-1771936610164",
+        "stock_quantity": 5,
+        "is_active": true,
+        "created_at": "2026-02-24T18:07:46.849941+05:30",
+        "updated_at": "2026-03-01T16:12:16.698877+05:30",
+        "images": [
+            {
+                "id": 20,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000063269.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000063269.jpg",
+                "alt_text": "Product image 1",
+                "sort_order": 0
+            }
+        ],
+        "variants": [
+            {
+                "id": 62,
+                "color": {
+                    "id": 2,
+                    "name": "Charcoal",
+                    "hex_code": "#333333"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Charcoal-l-610165",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 63,
+                "color": {
+                    "id": 2,
+                    "name": "Charcoal",
+                    "hex_code": "#333333"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Charcoal-xl-610165",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 60,
+                "color": {
+                    "id": 3,
+                    "name": "Gray",
+                    "hex_code": "#808080"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Gray-l-610165",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 61,
+                "color": {
+                    "id": 3,
+                    "name": "Gray",
+                    "hex_code": "#808080"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Gray-xl-610165",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 64,
+                "color": {
+                    "id": 7,
+                    "name": "Sky Blue",
+                    "hex_code": "#60A5FA"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Sky Blue-l-610165",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 65,
+                "color": {
+                    "id": 7,
+                    "name": "Sky Blue",
+                    "hex_code": "#60A5FA"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Sky Blue-xl-610165",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            }
+        ],
+        "rental_availability": null
+    },
+    {
+        "id": 8,
+        "seller": 2,
+        "seller_id": 2,
+        "seller_email": "ankitk12390@gmail.com",
+        "category": null,
+        "name": "Chhuh ii",
+        "description": "Ff",
+        "product_type": "new",
+        "original_price": "85.00",
+        "selling_price": "56.00",
+        "currency": "INR",
+        "condition": "new",
+        "status": "draft",
+        "shipping_option": "pickup",
+        "pickup_address": null,
+        "rental_price_per_day": null,
+        "late_return_penalty": "0.00",
+        "damage_protection_fee": "0.00",
+        "is_customizable": false,
+        "has_variants": true,
+        "base_sku": "SKU-1771863923070",
+        "stock_quantity": 55,
+        "is_active": true,
+        "created_at": "2026-02-23T21:55:23.899148+05:30",
+        "updated_at": "2026-02-23T21:55:23.899289+05:30",
+        "images": [
+            {
+                "id": 14,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000063019_2IP7B3M.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000063019_2IP7B3M.jpg",
+                "alt_text": "Product image 1",
+                "sort_order": 0
+            },
+            {
+                "id": 15,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000062833_pgwaQB9.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000062833_pgwaQB9.jpg",
+                "alt_text": "Product image 2",
+                "sort_order": 1
+            },
+            {
+                "id": 16,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000062834_hgSOUDH.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000062834_hgSOUDH.jpg",
+                "alt_text": "Product image 3",
+                "sort_order": 2
+            },
+            {
+                "id": 17,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000062832_e7DObMb.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000062832_e7DObMb.jpg",
+                "alt_text": "Product image 4",
+                "sort_order": 3
+            },
+            {
+                "id": 18,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000062835_Ui4AKg0.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000062835_Ui4AKg0.jpg",
+                "alt_text": "Product image 5",
+                "sort_order": 4
+            },
+            {
+                "id": 19,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000062879.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000062879.jpg",
+                "alt_text": "Product image 6",
+                "sort_order": 5
+            }
+        ],
+        "variants": [
+            {
+                "id": 59,
+                "color": {
+                    "id": 5,
+                    "name": "Royal Blue",
+                    "hex_code": "#1E40AF"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Royal Blue-l-923070",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            }
+        ],
+        "rental_availability": null
+    },
+    {
+        "id": 7,
+        "seller": 2,
+        "seller_id": 2,
+        "seller_email": "ankitk12390@gmail.com",
+        "category": null,
+        "name": "Shirt",
+        "description": "Cotton",
+        "product_type": "new",
+        "original_price": "2222.00",
+        "selling_price": "888.00",
+        "currency": "INR",
+        "condition": "new",
+        "status": "draft",
+        "shipping_option": "pickup",
+        "pickup_address": null,
+        "rental_price_per_day": null,
+        "late_return_penalty": "0.00",
+        "damage_protection_fee": "0.00",
+        "is_customizable": false,
+        "has_variants": true,
+        "base_sku": "SKU-1771857510400",
+        "stock_quantity": 5,
+        "is_active": true,
+        "created_at": "2026-02-23T20:08:30.884213+05:30",
+        "updated_at": "2026-02-23T20:08:30.884231+05:30",
+        "images": [
+            {
+                "id": 13,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000062886.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000062886.jpg",
+                "alt_text": "Product image 1",
+                "sort_order": 0
+            }
+        ],
+        "variants": [
+            {
+                "id": 53,
+                "color": {
+                    "id": 2,
+                    "name": "Charcoal",
+                    "hex_code": "#333333"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Charcoal-m-510401",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 54,
+                "color": {
+                    "id": 2,
+                    "name": "Charcoal",
+                    "hex_code": "#333333"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Charcoal-l-510401",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 55,
+                "color": {
+                    "id": 2,
+                    "name": "Charcoal",
+                    "hex_code": "#333333"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Charcoal-xl-510401",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 50,
+                "color": {
+                    "id": 3,
+                    "name": "Gray",
+                    "hex_code": "#808080"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Gray-m-510401",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 51,
+                "color": {
+                    "id": 3,
+                    "name": "Gray",
+                    "hex_code": "#808080"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Gray-l-510401",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 52,
+                "color": {
+                    "id": 3,
+                    "name": "Gray",
+                    "hex_code": "#808080"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Gray-xl-510401",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 56,
+                "color": {
+                    "id": 11,
+                    "name": "Brown",
+                    "hex_code": "#8B4513"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Brown-m-510401",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 57,
+                "color": {
+                    "id": 11,
+                    "name": "Brown",
+                    "hex_code": "#8B4513"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Brown-l-510401",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 58,
+                "color": {
+                    "id": 11,
+                    "name": "Brown",
+                    "hex_code": "#8B4513"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Brown-xl-510401",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            }
+        ],
+        "rental_availability": null
+    },
+    {
+        "id": 6,
+        "seller": 2,
+        "seller_id": 2,
+        "seller_email": "ankitk12390@gmail.com",
+        "category": null,
+        "name": "Women's dress",
+        "description": "Cotton clothes \r\nLong Kurti",
+        "product_type": "new",
+        "original_price": "1200.00",
+        "selling_price": "799.00",
+        "currency": "INR",
+        "condition": "new",
+        "status": "published",
+        "shipping_option": "pickup",
+        "pickup_address": null,
+        "rental_price_per_day": null,
+        "late_return_penalty": "0.00",
+        "damage_protection_fee": "0.00",
+        "is_customizable": false,
+        "has_variants": true,
+        "base_sku": "SKU-1771856912267",
+        "stock_quantity": 5,
+        "is_active": true,
+        "created_at": "2026-02-23T19:58:39.747797+05:30",
+        "updated_at": "2026-03-01T16:13:06.277390+05:30",
+        "images": [
+            {
+                "id": 9,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000062835.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000062835.jpg",
+                "alt_text": "Product image 1",
+                "sort_order": 0
+            },
+            {
+                "id": 10,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000062834.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000062834.jpg",
+                "alt_text": "Product image 2",
+                "sort_order": 1
+            },
+            {
+                "id": 11,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000062833.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000062833.jpg",
+                "alt_text": "Product image 3",
+                "sort_order": 2
+            },
+            {
+                "id": 12,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000062832.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000062832.jpg",
+                "alt_text": "Product image 4",
+                "sort_order": 3
+            }
+        ],
+        "variants": [
+            {
+                "id": 35,
+                "color": {
+                    "id": 2,
+                    "name": "Charcoal",
+                    "hex_code": "#333333"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Charcoal-m-912269",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 36,
+                "color": {
+                    "id": 2,
+                    "name": "Charcoal",
+                    "hex_code": "#333333"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Charcoal-l-912269",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 37,
+                "color": {
+                    "id": 2,
+                    "name": "Charcoal",
+                    "hex_code": "#333333"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Charcoal-xl-912269",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 38,
+                "color": {
+                    "id": 3,
+                    "name": "Gray",
+                    "hex_code": "#808080"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Gray-m-912269",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 39,
+                "color": {
+                    "id": 3,
+                    "name": "Gray",
+                    "hex_code": "#808080"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Gray-l-912269",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 40,
+                "color": {
+                    "id": 3,
+                    "name": "Gray",
+                    "hex_code": "#808080"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Gray-xl-912269",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 44,
+                "color": {
+                    "id": 7,
+                    "name": "Sky Blue",
+                    "hex_code": "#60A5FA"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Sky Blue-m-912269",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 45,
+                "color": {
+                    "id": 7,
+                    "name": "Sky Blue",
+                    "hex_code": "#60A5FA"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Sky Blue-l-912269",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 46,
+                "color": {
+                    "id": 7,
+                    "name": "Sky Blue",
+                    "hex_code": "#60A5FA"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Sky Blue-xl-912269",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 41,
+                "color": {
+                    "id": 11,
+                    "name": "Brown",
+                    "hex_code": "#8B4513"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Brown-m-912269",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 42,
+                "color": {
+                    "id": 11,
+                    "name": "Brown",
+                    "hex_code": "#8B4513"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Brown-l-912269",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 43,
+                "color": {
+                    "id": 11,
+                    "name": "Brown",
+                    "hex_code": "#8B4513"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Brown-xl-912269",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 47,
+                "color": {
+                    "id": 12,
+                    "name": "Orange",
+                    "hex_code": "#F97316"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Orange-m-912269",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 48,
+                "color": {
+                    "id": 12,
+                    "name": "Orange",
+                    "hex_code": "#F97316"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Orange-l-912269",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 49,
+                "color": {
+                    "id": 12,
+                    "name": "Orange",
+                    "hex_code": "#F97316"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Orange-xl-912269",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            }
+        ],
+        "rental_availability": null
+    },
+    {
+        "id": 4,
+        "seller": 2,
+        "seller_id": 2,
+        "seller_email": "ankitk12390@gmail.com",
+        "category": null,
+        "name": "Dress",
+        "description": "Ccgh",
+        "product_type": "new",
+        "original_price": "2000.00",
+        "selling_price": "555.00",
+        "currency": "INR",
+        "condition": "new",
+        "status": "draft",
+        "shipping_option": "pickup",
+        "pickup_address": null,
+        "rental_price_per_day": null,
+        "late_return_penalty": "0.00",
+        "damage_protection_fee": "0.00",
+        "is_customizable": false,
+        "has_variants": true,
+        "base_sku": "SKU-1771835970670",
+        "stock_quantity": 50,
+        "is_active": true,
+        "created_at": "2026-02-23T14:09:33.348951+05:30",
+        "updated_at": "2026-02-23T14:09:33.348961+05:30",
+        "images": [
+            {
+                "id": 7,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000063020.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000063020.jpg",
+                "alt_text": "Product image 1",
+                "sort_order": 0
+            }
+        ],
+        "variants": [
+            {
+                "id": 31,
+                "color": {
+                    "id": 2,
+                    "name": "Charcoal",
+                    "hex_code": "#333333"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Charcoal-m-970670",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 32,
+                "color": {
+                    "id": 2,
+                    "name": "Charcoal",
+                    "hex_code": "#333333"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Charcoal-l-970670",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 33,
+                "color": {
+                    "id": 2,
+                    "name": "Charcoal",
+                    "hex_code": "#333333"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Charcoal-xl-970670",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 28,
+                "color": {
+                    "id": 3,
+                    "name": "Gray",
+                    "hex_code": "#808080"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Gray-m-970670",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 29,
+                "color": {
+                    "id": 3,
+                    "name": "Gray",
+                    "hex_code": "#808080"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Gray-l-970670",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 30,
+                "color": {
+                    "id": 3,
+                    "name": "Gray",
+                    "hex_code": "#808080"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Gray-xl-970670",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 25,
+                "color": {
+                    "id": 11,
+                    "name": "Brown",
+                    "hex_code": "#8B4513"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Brown-m-970670",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 26,
+                "color": {
+                    "id": 11,
+                    "name": "Brown",
+                    "hex_code": "#8B4513"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Brown-l-970670",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 27,
+                "color": {
+                    "id": 11,
+                    "name": "Brown",
+                    "hex_code": "#8B4513"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Brown-xl-970670",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 22,
+                "color": {
+                    "id": 12,
+                    "name": "Orange",
+                    "hex_code": "#F97316"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Orange-m-970670",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 23,
+                "color": {
+                    "id": 12,
+                    "name": "Orange",
+                    "hex_code": "#F97316"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Orange-l-970670",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 24,
+                "color": {
+                    "id": 12,
+                    "name": "Orange",
+                    "hex_code": "#F97316"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Orange-xl-970670",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            }
+        ],
+        "rental_availability": null
+    },
+    {
+        "id": 3,
+        "seller": 2,
+        "seller_id": 2,
+        "seller_email": "ankitk12390@gmail.com",
+        "category": null,
+        "name": "Rental dress",
+        "description": "Good quality",
+        "product_type": "rental",
+        "original_price": "1000.00",
+        "selling_price": "359.00",
+        "currency": "INR",
+        "condition": "gently_used",
+        "status": "draft",
+        "shipping_option": "pickup",
+        "pickup_address": null,
+        "rental_price_per_day": "50.00",
+        "late_return_penalty": "30.00",
+        "damage_protection_fee": "100.00",
+        "is_customizable": false,
+        "has_variants": true,
+        "base_sku": "SKU-1771835623182",
+        "stock_quantity": 5,
+        "is_active": true,
+        "created_at": "2026-02-23T14:03:44.960588+05:30",
+        "updated_at": "2026-02-23T14:03:44.960604+05:30",
+        "images": [
+            {
+                "id": 6,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000063019.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000063019.jpg",
+                "alt_text": "Product image 1",
+                "sort_order": 0
+            }
+        ],
+        "variants": [
+            {
+                "id": 21,
+                "color": {
+                    "id": 2,
+                    "name": "Charcoal",
+                    "hex_code": "#333333"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Charcoal-m-623184",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 19,
+                "color": {
+                    "id": 2,
+                    "name": "Charcoal",
+                    "hex_code": "#333333"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Charcoal-l-623184",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 20,
+                "color": {
+                    "id": 2,
+                    "name": "Charcoal",
+                    "hex_code": "#333333"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Charcoal-xl-623184",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 12,
+                "color": {
+                    "id": 4,
+                    "name": "Cream",
+                    "hex_code": "#FDFBF7"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Cream-m-623184",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 10,
+                "color": {
+                    "id": 4,
+                    "name": "Cream",
+                    "hex_code": "#FDFBF7"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Cream-l-623183",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 11,
+                "color": {
+                    "id": 4,
+                    "name": "Cream",
+                    "hex_code": "#FDFBF7"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Cream-xl-623184",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 15,
+                "color": {
+                    "id": 6,
+                    "name": "Blue",
+                    "hex_code": "#2563EB"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Blue-m-623184",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 13,
+                "color": {
+                    "id": 6,
+                    "name": "Blue",
+                    "hex_code": "#2563EB"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Blue-l-623184",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 14,
+                "color": {
+                    "id": 6,
+                    "name": "Blue",
+                    "hex_code": "#2563EB"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Blue-xl-623184",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 18,
+                "color": {
+                    "id": 7,
+                    "name": "Sky Blue",
+                    "hex_code": "#60A5FA"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Sky Blue-m-623184",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 16,
+                "color": {
+                    "id": 7,
+                    "name": "Sky Blue",
+                    "hex_code": "#60A5FA"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Sky Blue-l-623184",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 17,
+                "color": {
+                    "id": 7,
+                    "name": "Sky Blue",
+                    "hex_code": "#60A5FA"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Sky Blue-xl-623184",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            }
+        ],
+        "rental_availability": null
+    },
+    {
+        "id": 2,
+        "seller": 2,
+        "seller_id": 2,
+        "seller_email": "ankitk12390@gmail.com",
+        "category": null,
+        "name": "Trending T-shirt",
+        "description": "T shirt for men",
+        "product_type": "new",
+        "original_price": "1500.00",
+        "selling_price": "799.00",
+        "currency": "INR",
+        "condition": "new",
+        "status": "draft",
+        "shipping_option": "pickup",
+        "pickup_address": null,
+        "rental_price_per_day": null,
+        "late_return_penalty": "0.00",
+        "damage_protection_fee": "0.00",
+        "is_customizable": false,
+        "has_variants": true,
+        "base_sku": "SKU-1771834839037",
+        "stock_quantity": 5,
+        "is_active": true,
+        "created_at": "2026-02-23T13:50:40.688111+05:30",
+        "updated_at": "2026-02-23T13:50:40.688121+05:30",
+        "images": [
+            {
+                "id": 3,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000062906.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000062906.jpg",
+                "alt_text": "Product image 1",
+                "sort_order": 0
+            },
+            {
+                "id": 4,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000062907.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000062907.jpg",
+                "alt_text": "Product image 2",
+                "sort_order": 1
+            },
+            {
+                "id": 5,
+                "image": "https://feelvie.yaytech.in/uploads/products/1000062904.jpg",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/1000062904.jpg",
+                "alt_text": "Product image 3",
+                "sort_order": 2
+            }
+        ],
+        "variants": [
+            {
+                "id": 9,
+                "color": {
+                    "id": 6,
+                    "name": "Blue",
+                    "hex_code": "#2563EB"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Blue-m-839038",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 7,
+                "color": {
+                    "id": 6,
+                    "name": "Blue",
+                    "hex_code": "#2563EB"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Blue-l-839038",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 8,
+                "color": {
+                    "id": 6,
+                    "name": "Blue",
+                    "hex_code": "#2563EB"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Blue-xl-839038",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 6,
+                "color": {
+                    "id": 7,
+                    "name": "Sky Blue",
+                    "hex_code": "#60A5FA"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Sky Blue-m-839038",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 4,
+                "color": {
+                    "id": 7,
+                    "name": "Sky Blue",
+                    "hex_code": "#60A5FA"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Sky Blue-l-839038",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 5,
+                "color": {
+                    "id": 7,
+                    "name": "Sky Blue",
+                    "hex_code": "#60A5FA"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Sky Blue-xl-839038",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 3,
+                "color": {
+                    "id": 9,
+                    "name": "Olive",
+                    "hex_code": "#6B7280"
+                },
+                "size": {
+                    "id": 3,
+                    "size": "m",
+                    "size_display": "M"
+                },
+                "sku": "VAR-Olive-m-839038",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 1,
+                "color": {
+                    "id": 9,
+                    "name": "Olive",
+                    "hex_code": "#6B7280"
+                },
+                "size": {
+                    "id": 4,
+                    "size": "l",
+                    "size_display": "L"
+                },
+                "sku": "VAR-Olive-l-839038",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            },
+            {
+                "id": 2,
+                "color": {
+                    "id": 9,
+                    "name": "Olive",
+                    "hex_code": "#6B7280"
+                },
+                "size": {
+                    "id": 5,
+                    "size": "xl",
+                    "size_display": "XL"
+                },
+                "sku": "VAR-Olive-xl-839038",
+                "quantity": 1,
+                "price_override": null,
+                "is_active": true
+            }
+        ],
+        "rental_availability": null
+    },
+    {
+        "id": 1,
+        "seller": 1,
+        "seller_id": 1,
+        "seller_email": "admin@mktp.com",
+        "category": null,
+        "name": "Shirt",
+        "description": "",
+        "product_type": "new",
+        "original_price": null,
+        "selling_price": "10000.00",
+        "currency": "INR",
+        "condition": "new",
+        "status": "draft",
+        "shipping_option": "both",
+        "pickup_address": null,
+        "rental_price_per_day": null,
+        "late_return_penalty": "0.00",
+        "damage_protection_fee": "0.00",
+        "is_customizable": false,
+        "has_variants": false,
+        "base_sku": "",
+        "stock_quantity": 0,
+        "is_active": true,
+        "created_at": "2026-02-22T23:34:04.997394+05:30",
+        "updated_at": "2026-02-22T23:41:43.668824+05:30",
+        "images": [
+            {
+                "id": 2,
+                "image": "https://feelvie.yaytech.in/uploads/products/images.png",
+                "image_url": "https://feelvie.yaytech.in/uploads/products/images.png",
+                "alt_text": "",
+                "sort_order": 0
+            }
+        ],
+        "variants": [],
+        "rental_availability": null
+    }
+]

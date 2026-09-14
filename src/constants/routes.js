@@ -1,0 +1,17 @@
+export const ROUTES = {
+  HOME: '/home',
+  REGISTER: '/register',
+  LOGIN: '/login',
+  PRODUCTS_PUBLIC: '/products',
+  PRODUCT_PUBLIC: (id = ':id') => `/product/${id}`,
+  CATALOGUE_PUBLIC: (slug = ':publicSlug') => `/${slug}`,
+  DASHBOARD: '/view-products',
+  PRODUCT_DETAIL: (id = ':id') => `/products/${id}`,
+  ADD_PRODUCT: '/add-product',
+  ADD_VARIANT: '/add-variant',
+  ASK_QUOTE: '/ask-quote',
+  CHAT: '/chat',
+  PRIVACY_POLICY: '/privacy-policy',
+  DELETE_ACCOUNT: '/delete-account',
+  PROFILE: '/profile',
+}
