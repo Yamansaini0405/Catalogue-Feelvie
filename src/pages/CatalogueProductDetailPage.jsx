@@ -106,13 +106,6 @@ function ProductUnavailable({ error }) {
               <ArrowLeft size={15} />
               Go back
             </button>
-
-            <Link
-              to="/products"
-              className="flex flex-1 items-center justify-center gap-2 border border-[#E5E0D4] px-5 py-3 text-sm font-medium text-[#1C1B19] transition hover:bg-[#FAF7F1]"
-            >
-              Explore stores
-            </Link>
           </div>
         </div>
       </div>
