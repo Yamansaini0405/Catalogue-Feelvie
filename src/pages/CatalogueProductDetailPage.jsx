@@ -43,13 +43,6 @@ function SiteHeader() {
             FeelVie
           </span>
         </Link>
-
-        <Link
-          to="/products"
-          className="hidden text-sm font-medium text-[#55504A] transition hover:text-[#1C1B19] sm:block"
-        >
-          Explore stores
-        </Link>
       </div>
     </header>
   )
