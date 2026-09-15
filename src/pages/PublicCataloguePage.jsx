@@ -75,10 +75,12 @@ function PublicProductCard({ product, onClick }) {
             {formatMoney(product?.selling_price, product?.currency)}
           </span>
 
+         <Link to={`/catalogue/${product?.id}`} className="group flex items-center gap-1">
           <span className="flex items-center gap-1 text-xs font-medium text-[#948C7E] opacity-0 transition-opacity duration-200 group-hover:opacity-100">
             View piece
             <ArrowRight size={12} />
           </span>
+          </Link>
         </div>
       </div>
     </button>
@@ -293,7 +295,7 @@ export default function PublicCataloguePage() {
               to=""
               className="hidden text-sm font-medium text-[#55504A] transition hover:text-[#1C1B19] sm:block"
             >
-              Explore stores
+              Feel Your Vibe
             </Link>
           </div>
         </div>
@@ -417,7 +419,7 @@ export default function PublicCataloguePage() {
                 value={search}
                 onChange={setSearch}
                 placeholder="Search this store"
-                className="border-0 border-b border-[#E5E0D4] bg-transparent pl-6 text-sm focus:border-[#1C1B19]"
+                className="border-0 border-b border-[#E5E0D4] bg-transparent text-sm focus:border-[#1C1B19]"
               />
             </div>
 
@@ -499,12 +501,7 @@ export default function PublicCataloguePage() {
             </p>
           </div>
 
-          <Link
-            to="/products"
-            className="text-sm font-medium text-[#55504A] transition hover:text-[#1C1B19]"
-          >
-            Explore more stores →
-          </Link>
+          
         </div>
       </footer>
     </main>

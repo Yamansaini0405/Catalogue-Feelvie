@@ -20,6 +20,7 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import AccountDeletePage from './pages/AccountDeletePage'
 import ChatBot from './pages/ChatBot'
 import NotFoundPage from './pages/NotFoundPage'
+import CatalogueProductDetailPage from './pages/CatalogueProductDetailPage'
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path={ROUTES.PRODUCT_PUBLIC()} element={<PublicProductDetailPage />} />
         <Route path="/product/:id/share" element={<SharedProductPage />} />
         <Route path={ROUTES.CATALOGUE_PUBLIC()} element={<PublicCataloguePage />} />
+        <Route path="/catalogue/:id" element={<CatalogueProductDetailPage />} />
 
         <Route
           element={

@@ -71,16 +71,6 @@ export default function RegisterPage() {
           </FormField>
         </div>
 
-        <FormField label="Role">
-          <Select name="role" value={form.role} onChange={handleChange}>
-            {ROLE_OPTIONS.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </Select>
-        </FormField>
-
         <Button type="submit" loading={loading} className="w-full">
           {loading ? 'Creating account…' : 'Create owner account'}
         </Button>
